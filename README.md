@@ -8,3 +8,5 @@ Public, read-only examples with fictional order data.
 The downloads contain free sample inputs and outputs. The paid tools are sold separately on Contra and are not included in this repository.
 
 Copyright 2026 Oleh Boiko. No license to resell the example materials is granted.
+
+- [Reseller Stock Tracker example](https://pelmeskaaaa.github.io/order-tools/reseller-stock-tracker/)

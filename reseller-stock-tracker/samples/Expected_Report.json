@@ -1,0 +1,347 @@
+{
+  "asOf": "2026-10-19",
+  "currency": "GBP",
+  "totals": {
+    "items": 5,
+    "inStock": 2,
+    "sold": 2,
+    "returnedOut": 1,
+    "knownStockCostPence": 650,
+    "unknownStockCostCount": 1,
+    "salesCount": 5,
+    "returnCount": 4,
+    "grossPence": 13000,
+    "shippingIncomePence": 1200,
+    "feesPence": 1450,
+    "postagePence": 1650,
+    "otherPence": 0,
+    "refundsPence": 9800,
+    "feeCreditsPence": 600,
+    "returnPostagePence": 1550,
+    "netReceiptsPence": 350,
+    "knownCogsPence": 3000,
+    "unknownCogsCount": 0,
+    "profitPence": -2650
+  },
+  "items": [
+    {
+      "id": "coat",
+      "sku": "COAT-001",
+      "name": "Navy wool coat",
+      "listings": [
+        "eBay",
+        "Vinted"
+      ],
+      "boughtOn": "2026-08-01",
+      "costPence": 1000,
+      "lotId": "lot-001",
+      "acquiredDate": "2026-08-01",
+      "status": "sold",
+      "daysSinceBought": 79,
+      "daysInStock": 38,
+      "currentStockDays": 0,
+      "stockSince": null,
+      "lastSaleId": "coat-sale-4",
+      "lastSalePlatform": "Vinted",
+      "lastSaleDate": "2026-09-14",
+      "delistPlatforms": [
+        "eBay"
+      ]
+    },
+    {
+      "id": "shirt",
+      "sku": "SHIRT-002",
+      "name": "Oxford shirt",
+      "listings": [
+        "eBay",
+        "Depop"
+      ],
+      "boughtOn": "2026-08-01",
+      "costPence": 800,
+      "lotId": "lot-001",
+      "acquiredDate": "2026-08-01",
+      "status": "sold",
+      "daysSinceBought": 79,
+      "daysInStock": 50,
+      "currentStockDays": 0,
+      "stockSince": null,
+      "lastSaleId": "bundle-sale",
+      "lastSalePlatform": "eBay",
+      "lastSaleDate": "2026-09-20",
+      "delistPlatforms": [
+        "Depop"
+      ]
+    },
+    {
+      "id": "denim",
+      "sku": "DENIM-003",
+      "name": "Vintage denim jacket",
+      "listings": [
+        "eBay",
+        "Vinted"
+      ],
+      "boughtOn": "2026-08-01",
+      "costPence": 1200,
+      "lotId": "lot-001",
+      "acquiredDate": "2026-08-01",
+      "status": "returned_out",
+      "daysSinceBought": 79,
+      "daysInStock": 50,
+      "currentStockDays": 0,
+      "stockSince": null,
+      "lastSaleId": "bundle-sale",
+      "lastSalePlatform": "eBay",
+      "lastSaleDate": "2026-09-20",
+      "delistPlatforms": [
+        "Vinted"
+      ]
+    },
+    {
+      "id": "unknown",
+      "sku": "SCARF-004",
+      "name": "Silk scarf",
+      "boughtOn": "2026-07-01",
+      "costPence": null,
+      "listings": [
+        "Vinted"
+      ],
+      "notes": "Purchase receipt not found. Cost stays unknown.",
+      "acquiredDate": "2026-07-01",
+      "status": "in_stock",
+      "daysSinceBought": 110,
+      "daysInStock": 110,
+      "currentStockDays": 110,
+      "stockSince": "2026-07-01",
+      "lastSaleId": null,
+      "lastSalePlatform": null,
+      "lastSaleDate": null,
+      "delistPlatforms": []
+    },
+    {
+      "id": "stock",
+      "sku": "KNIT-005",
+      "name": "Cream knit jumper",
+      "boughtOn": "2026-07-10",
+      "costPence": 650,
+      "listings": [
+        "Vinted",
+        "Depop"
+      ],
+      "notes": "Older stock, still available.",
+      "acquiredDate": "2026-07-10",
+      "status": "in_stock",
+      "daysSinceBought": 101,
+      "daysInStock": 101,
+      "currentStockDays": 101,
+      "stockSince": "2026-07-10",
+      "lastSaleId": null,
+      "lastSalePlatform": null,
+      "lastSaleDate": null,
+      "delistPlatforms": []
+    }
+  ],
+  "sales": [
+    {
+      "id": "coat-sale-1",
+      "date": "2026-09-02",
+      "platform": "eBay",
+      "items": [
+        {
+          "itemId": "coat",
+          "grossPence": 2000
+        }
+      ],
+      "shippingIncomePence": 200,
+      "feesPence": 200,
+      "postagePence": 300,
+      "otherPence": 0,
+      "grossPence": 2000,
+      "refundsPence": 2200,
+      "feeCreditsPence": 100,
+      "returnPostagePence": 400,
+      "netReceiptsPence": -800,
+      "knownCogsPence": 0,
+      "unknownCogsCount": 0,
+      "profitPence": -800,
+      "returnCount": 1
+    },
+    {
+      "id": "coat-sale-2",
+      "date": "2026-09-06",
+      "platform": "eBay",
+      "items": [
+        {
+          "itemId": "coat",
+          "grossPence": 2000
+        }
+      ],
+      "shippingIncomePence": 200,
+      "feesPence": 200,
+      "postagePence": 300,
+      "otherPence": 0,
+      "grossPence": 2000,
+      "refundsPence": 2200,
+      "feeCreditsPence": 100,
+      "returnPostagePence": 400,
+      "netReceiptsPence": -800,
+      "knownCogsPence": 0,
+      "unknownCogsCount": 0,
+      "profitPence": -800,
+      "returnCount": 1
+    },
+    {
+      "id": "coat-sale-3",
+      "date": "2026-09-10",
+      "platform": "eBay",
+      "items": [
+        {
+          "itemId": "coat",
+          "grossPence": 2000
+        }
+      ],
+      "shippingIncomePence": 200,
+      "feesPence": 200,
+      "postagePence": 300,
+      "otherPence": 0,
+      "grossPence": 2000,
+      "refundsPence": 2200,
+      "feeCreditsPence": 100,
+      "returnPostagePence": 400,
+      "netReceiptsPence": -800,
+      "knownCogsPence": 0,
+      "unknownCogsCount": 0,
+      "profitPence": -800,
+      "returnCount": 1
+    },
+    {
+      "id": "coat-sale-4",
+      "date": "2026-09-14",
+      "platform": "Vinted",
+      "items": [
+        {
+          "itemId": "coat",
+          "grossPence": 2000
+        }
+      ],
+      "shippingIncomePence": 200,
+      "feesPence": 200,
+      "postagePence": 300,
+      "otherPence": 0,
+      "grossPence": 2000,
+      "refundsPence": 0,
+      "feeCreditsPence": 0,
+      "returnPostagePence": 0,
+      "netReceiptsPence": 1700,
+      "knownCogsPence": 1000,
+      "unknownCogsCount": 0,
+      "profitPence": 700,
+      "returnCount": 0
+    },
+    {
+      "id": "bundle-sale",
+      "date": "2026-09-20",
+      "platform": "eBay",
+      "items": [
+        {
+          "itemId": "shirt",
+          "grossPence": 1800
+        },
+        {
+          "itemId": "denim",
+          "grossPence": 3200
+        }
+      ],
+      "shippingIncomePence": 400,
+      "feesPence": 650,
+      "postagePence": 450,
+      "otherPence": 0,
+      "grossPence": 5000,
+      "refundsPence": 3200,
+      "feeCreditsPence": 300,
+      "returnPostagePence": 350,
+      "netReceiptsPence": 1050,
+      "knownCogsPence": 2000,
+      "unknownCogsCount": 0,
+      "profitPence": -950,
+      "returnCount": 1
+    }
+  ],
+  "returns": [
+    {
+      "id": "coat-return-1",
+      "saleId": "coat-sale-1",
+      "itemId": "coat",
+      "date": "2026-09-04",
+      "refundPence": 2200,
+      "feeCreditPence": 100,
+      "returnPostagePence": 400,
+      "restock": true,
+      "reason": "Buyer returned the item. Condition checked before relisting."
+    },
+    {
+      "id": "coat-return-2",
+      "saleId": "coat-sale-2",
+      "itemId": "coat",
+      "date": "2026-09-08",
+      "refundPence": 2200,
+      "feeCreditPence": 100,
+      "returnPostagePence": 400,
+      "restock": true,
+      "reason": "Buyer returned the item. Condition checked before relisting."
+    },
+    {
+      "id": "coat-return-3",
+      "saleId": "coat-sale-3",
+      "itemId": "coat",
+      "date": "2026-09-12",
+      "refundPence": 2200,
+      "feeCreditPence": 100,
+      "returnPostagePence": 400,
+      "restock": true,
+      "reason": "Buyer returned the item. Condition checked before relisting."
+    },
+    {
+      "id": "denim-return",
+      "saleId": "bundle-sale",
+      "itemId": "denim",
+      "date": "2026-09-25",
+      "refundPence": 3200,
+      "feeCreditPence": 300,
+      "returnPostagePence": 350,
+      "restock": false,
+      "reason": "Damaged on return. Not available for resale."
+    }
+  ],
+  "delistReminders": [
+    {
+      "itemId": "coat",
+      "sku": "COAT-001",
+      "name": "Navy wool coat",
+      "platforms": [
+        "eBay"
+      ],
+      "soldOn": "2026-09-14",
+      "soldPlatform": "Vinted"
+    },
+    {
+      "itemId": "shirt",
+      "sku": "SHIRT-002",
+      "name": "Oxford shirt",
+      "platforms": [
+        "Depop"
+      ],
+      "soldOn": "2026-09-20",
+      "soldPlatform": "eBay"
+    },
+    {
+      "itemId": "denim",
+      "sku": "DENIM-003",
+      "name": "Vintage denim jacket",
+      "platforms": [
+        "Vinted"
+      ],
+      "soldOn": "2026-09-20",
+      "soldPlatform": "eBay"
+    }
+  ]
+}

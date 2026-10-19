@@ -1,0 +1,5 @@
+return_id,sale_id,sku,date,currency,refund_amount,fee_credit,return_postage,restocked,reason
+coat-return-1,coat-sale-1,COAT-001,2026-09-04,GBP,22.00,1.00,4.00,yes,Buyer returned the item. Condition checked before relisting.
+coat-return-2,coat-sale-2,COAT-001,2026-09-08,GBP,22.00,1.00,4.00,yes,Buyer returned the item. Condition checked before relisting.
+coat-return-3,coat-sale-3,COAT-001,2026-09-12,GBP,22.00,1.00,4.00,yes,Buyer returned the item. Condition checked before relisting.
+denim-return,bundle-sale,DENIM-003,2026-09-25,GBP,32.00,3.00,3.50,no,Damaged on return. Not available for resale.

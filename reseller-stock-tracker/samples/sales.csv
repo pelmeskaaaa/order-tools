@@ -1,0 +1,6 @@
+sale_id,date,platform,item_skus,currency,gross_amount,shipping_income,fees,postage,other_costs,refunds,fee_credits,return_postage,net_receipts,known_purchase_cost,unknown_cost_items,profit
+coat-sale-1,2026-09-02,eBay,COAT-001,GBP,20.00,2.00,2.00,3.00,0.00,22.00,1.00,4.00,-8.00,0.00,0,-8.00
+coat-sale-2,2026-09-06,eBay,COAT-001,GBP,20.00,2.00,2.00,3.00,0.00,22.00,1.00,4.00,-8.00,0.00,0,-8.00
+coat-sale-3,2026-09-10,eBay,COAT-001,GBP,20.00,2.00,2.00,3.00,0.00,22.00,1.00,4.00,-8.00,0.00,0,-8.00
+coat-sale-4,2026-09-14,Vinted,COAT-001,GBP,20.00,2.00,2.00,3.00,0.00,0.00,0.00,0.00,17.00,10.00,0,7.00
+bundle-sale,2026-09-20,eBay,SHIRT-002 | DENIM-003,GBP,50.00,4.00,6.50,4.50,0.00,32.00,3.00,3.50,10.50,20.00,0,-9.50

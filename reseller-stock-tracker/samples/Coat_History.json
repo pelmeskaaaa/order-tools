@@ -1,0 +1,96 @@
+[
+  {
+    "type": "purchase",
+    "date": "2026-08-01",
+    "itemId": "coat",
+    "sku": "COAT-001",
+    "label": "Bought in a lot",
+    "details": "Navy wool coat",
+    "costPence": 1000
+  },
+  {
+    "type": "sale",
+    "date": "2026-09-02",
+    "itemId": "coat",
+    "sku": "COAT-001",
+    "label": "Sold on eBay",
+    "details": "Order fees and postage remain in the full sale record.",
+    "saleId": "coat-sale-1",
+    "grossPence": 2000
+  },
+  {
+    "id": "coat-return-1",
+    "saleId": "coat-sale-1",
+    "itemId": "coat",
+    "date": "2026-09-04",
+    "refundPence": 2200,
+    "feeCreditPence": 100,
+    "returnPostagePence": 400,
+    "restock": true,
+    "reason": "Buyer returned the item. Condition checked before relisting.",
+    "type": "return",
+    "sku": "COAT-001",
+    "label": "Returned to stock",
+    "details": "Buyer returned the item. Condition checked before relisting."
+  },
+  {
+    "type": "sale",
+    "date": "2026-09-06",
+    "itemId": "coat",
+    "sku": "COAT-001",
+    "label": "Sold on eBay",
+    "details": "Order fees and postage remain in the full sale record.",
+    "saleId": "coat-sale-2",
+    "grossPence": 2000
+  },
+  {
+    "id": "coat-return-2",
+    "saleId": "coat-sale-2",
+    "itemId": "coat",
+    "date": "2026-09-08",
+    "refundPence": 2200,
+    "feeCreditPence": 100,
+    "returnPostagePence": 400,
+    "restock": true,
+    "reason": "Buyer returned the item. Condition checked before relisting.",
+    "type": "return",
+    "sku": "COAT-001",
+    "label": "Returned to stock",
+    "details": "Buyer returned the item. Condition checked before relisting."
+  },
+  {
+    "type": "sale",
+    "date": "2026-09-10",
+    "itemId": "coat",
+    "sku": "COAT-001",
+    "label": "Sold on eBay",
+    "details": "Order fees and postage remain in the full sale record.",
+    "saleId": "coat-sale-3",
+    "grossPence": 2000
+  },
+  {
+    "id": "coat-return-3",
+    "saleId": "coat-sale-3",
+    "itemId": "coat",
+    "date": "2026-09-12",
+    "refundPence": 2200,
+    "feeCreditPence": 100,
+    "returnPostagePence": 400,
+    "restock": true,
+    "reason": "Buyer returned the item. Condition checked before relisting.",
+    "type": "return",
+    "sku": "COAT-001",
+    "label": "Returned to stock",
+    "details": "Buyer returned the item. Condition checked before relisting."
+  },
+  {
+    "type": "sale",
+    "date": "2026-09-14",
+    "itemId": "coat",
+    "sku": "COAT-001",
+    "label": "Sold on Vinted",
+    "details": "Order fees and postage remain in the full sale record.",
+    "saleId": "coat-sale-4",
+    "grossPence": 2000
+  }
+]

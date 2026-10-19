@@ -1,0 +1,6 @@
+sku,name,status,bought_on,purchase_cost,currency,days_since_bought,days_in_stock,current_stock_days,listings,delist_reminders,notes
+COAT-001,Navy wool coat,sold,2026-08-01,10.00,GBP,79,38,0,eBay | Vinted,eBay,
+SHIRT-002,Oxford shirt,sold,2026-08-01,8.00,GBP,79,50,0,eBay | Depop,Depop,
+DENIM-003,Vintage denim jacket,returned_out,2026-08-01,12.00,GBP,79,50,0,eBay | Vinted,Vinted,
+SCARF-004,Silk scarf,in_stock,2026-07-01,,GBP,110,110,110,Vinted,,Purchase receipt not found. Cost stays unknown.
+KNIT-005,Cream knit jumper,in_stock,2026-07-10,6.50,GBP,101,101,101,Vinted | Depop,,"Older stock, still available."

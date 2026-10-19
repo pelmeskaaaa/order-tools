@@ -1,0 +1,16 @@
+sku,event,date,sale_id,label,details,purchase_cost,gross_amount,refund_amount,fee_credit,return_postage,currency
+COAT-001,purchase,2026-08-01,,Bought in a lot,Navy wool coat,10.00,,,,,GBP
+COAT-001,sale,2026-09-02,coat-sale-1,Sold on eBay,Order fees and postage remain in the full sale record.,,20.00,,,,GBP
+COAT-001,return,2026-09-04,coat-sale-1,Returned to stock,Buyer returned the item. Condition checked before relisting.,,,22.00,1.00,4.00,GBP
+COAT-001,sale,2026-09-06,coat-sale-2,Sold on eBay,Order fees and postage remain in the full sale record.,,20.00,,,,GBP
+COAT-001,return,2026-09-08,coat-sale-2,Returned to stock,Buyer returned the item. Condition checked before relisting.,,,22.00,1.00,4.00,GBP
+COAT-001,sale,2026-09-10,coat-sale-3,Sold on eBay,Order fees and postage remain in the full sale record.,,20.00,,,,GBP
+COAT-001,return,2026-09-12,coat-sale-3,Returned to stock,Buyer returned the item. Condition checked before relisting.,,,22.00,1.00,4.00,GBP
+COAT-001,sale,2026-09-14,coat-sale-4,Sold on Vinted,Order fees and postage remain in the full sale record.,,20.00,,,,GBP
+SHIRT-002,purchase,2026-08-01,,Bought in a lot,Oxford shirt,8.00,,,,,GBP
+SHIRT-002,sale,2026-09-20,bundle-sale,Sold on eBay,Order fees and postage remain in the full sale record.,,18.00,,,,GBP
+DENIM-003,purchase,2026-08-01,,Bought in a lot,Vintage denim jacket,12.00,,,,,GBP
+DENIM-003,sale,2026-09-20,bundle-sale,Sold on eBay,Order fees and postage remain in the full sale record.,,32.00,,,,GBP
+DENIM-003,return,2026-09-25,bundle-sale,Returned without restocking,Damaged on return. Not available for resale.,,,32.00,3.00,3.50,GBP
+SCARF-004,purchase,2026-07-01,,Bought,Silk scarf,,,,,,GBP
+KNIT-005,purchase,2026-07-10,,Bought,Cream knit jumper,6.50,,,,,GBP
