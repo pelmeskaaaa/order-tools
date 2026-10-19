@@ -1,0 +1,5 @@
+purchase_id,purchase_date,item_cost,shipping_cost,tax_cost,refund_amount,currency
+P1001,2026-10-12,55.00,5.00,3.00,0.00,USD
+P1002,2026-10-12,80.00,0.00,0.00,0.00,USD
+P1003,2026-10-13,60.00,0.00,0.00,0.00,USD
+P1004,2026-10-13,24.00,0.00,0.00,0.00,USD

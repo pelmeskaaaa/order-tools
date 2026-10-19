@@ -1,0 +1,885 @@
+{
+  "application": "Order Profit Reconciler",
+  "as_of_date": "2026-10-16",
+  "fictional_example": true,
+  "proceeds_mode": "components",
+  "inputs": {
+    "sales": "sale_id,sale_date,item_revenue,shipping_revenue,refund_amount,platform_fees,fee_credits,seller_tax_liability,other_costs,currency\nS1001,2026-10-14,120.00,5.00,0.00,15.00,0.00,0.00,2.00,USD\nS1002,2026-10-14,90.00,0.00,10.00,12.00,2.00,0.00,0.00,USD\nS1003,2026-10-15,60.00,0.00,0.00,6.00,0.00,0.00,0.00,USD\nS1004,2026-10-15,160.00,0.00,0.00,16.00,0.00,0.00,0.00,USD\nS1005,2026-10-16,45.00,0.00,0.00,5.00,0.00,0.00,0.00,USD\n",
+    "purchases": "purchase_id,purchase_date,item_cost,shipping_cost,tax_cost,refund_amount,currency\nP1001,2026-10-12,55.00,5.00,3.00,0.00,USD\nP1002,2026-10-12,80.00,0.00,0.00,0.00,USD\nP1003,2026-10-13,60.00,0.00,0.00,0.00,USD\nP1004,2026-10-13,24.00,0.00,0.00,0.00,USD\n",
+    "allocations": "sale_id,purchase_id,allocated_cost\nS1001,P1001,\nS1002,P1002,\nS1003,P1003,30.00\nS1004,P1003,30.00\n"
+  },
+  "result": {
+    "orders": [
+      {
+        "sale_id": "S1001",
+        "sale_date": "2026-10-14",
+        "currency": "USD",
+        "source_line": 2,
+        "source_lines": [
+          2
+        ],
+        "proceeds_mode": "components",
+        "net_proceeds": "110.00",
+        "allocated_cost": "63.00",
+        "profit": "45.00",
+        "status": "complete",
+        "reasons": [],
+        "purchase_ids": [
+          "P1001"
+        ],
+        "allocations": [
+          {
+            "purchase_id": "P1001",
+            "allocated_cost": "63.00",
+            "inferred": true,
+            "source_lines": [
+              2
+            ]
+          }
+        ],
+        "source_records": [
+          {
+            "source_line": 2,
+            "raw": {
+              "headers": [
+                "sale_id",
+                "sale_date",
+                "item_revenue",
+                "shipping_revenue",
+                "refund_amount",
+                "platform_fees",
+                "fee_credits",
+                "seller_tax_liability",
+                "other_costs",
+                "currency"
+              ],
+              "values": [
+                "S1001",
+                "2026-10-14",
+                "120.00",
+                "5.00",
+                "0.00",
+                "15.00",
+                "0.00",
+                "0.00",
+                "2.00",
+                "USD"
+              ]
+            }
+          }
+        ],
+        "raw": {
+          "headers": [
+            "sale_id",
+            "sale_date",
+            "item_revenue",
+            "shipping_revenue",
+            "refund_amount",
+            "platform_fees",
+            "fee_credits",
+            "seller_tax_liability",
+            "other_costs",
+            "currency"
+          ],
+          "values": [
+            "S1001",
+            "2026-10-14",
+            "120.00",
+            "5.00",
+            "0.00",
+            "15.00",
+            "0.00",
+            "0.00",
+            "2.00",
+            "USD"
+          ]
+        },
+        "item_revenue": "120.00",
+        "shipping_revenue": "5.00",
+        "refund_amount": "0.00",
+        "platform_fees": "15.00",
+        "fee_credits": "0.00",
+        "seller_tax_liability": "0.00",
+        "other_costs": "2.00",
+        "order_earnings": null
+      },
+      {
+        "sale_id": "S1002",
+        "sale_date": "2026-10-14",
+        "currency": "USD",
+        "source_line": 3,
+        "source_lines": [
+          3
+        ],
+        "proceeds_mode": "components",
+        "net_proceeds": "70.00",
+        "allocated_cost": "80.00",
+        "profit": "-10.00",
+        "status": "complete",
+        "reasons": [],
+        "purchase_ids": [
+          "P1002"
+        ],
+        "allocations": [
+          {
+            "purchase_id": "P1002",
+            "allocated_cost": "80.00",
+            "inferred": true,
+            "source_lines": [
+              3
+            ]
+          }
+        ],
+        "source_records": [
+          {
+            "source_line": 3,
+            "raw": {
+              "headers": [
+                "sale_id",
+                "sale_date",
+                "item_revenue",
+                "shipping_revenue",
+                "refund_amount",
+                "platform_fees",
+                "fee_credits",
+                "seller_tax_liability",
+                "other_costs",
+                "currency"
+              ],
+              "values": [
+                "S1002",
+                "2026-10-14",
+                "90.00",
+                "0.00",
+                "10.00",
+                "12.00",
+                "2.00",
+                "0.00",
+                "0.00",
+                "USD"
+              ]
+            }
+          }
+        ],
+        "raw": {
+          "headers": [
+            "sale_id",
+            "sale_date",
+            "item_revenue",
+            "shipping_revenue",
+            "refund_amount",
+            "platform_fees",
+            "fee_credits",
+            "seller_tax_liability",
+            "other_costs",
+            "currency"
+          ],
+          "values": [
+            "S1002",
+            "2026-10-14",
+            "90.00",
+            "0.00",
+            "10.00",
+            "12.00",
+            "2.00",
+            "0.00",
+            "0.00",
+            "USD"
+          ]
+        },
+        "item_revenue": "90.00",
+        "shipping_revenue": "0.00",
+        "refund_amount": "10.00",
+        "platform_fees": "12.00",
+        "fee_credits": "2.00",
+        "seller_tax_liability": "0.00",
+        "other_costs": "0.00",
+        "order_earnings": null
+      },
+      {
+        "sale_id": "S1003",
+        "sale_date": "2026-10-15",
+        "currency": "USD",
+        "source_line": 4,
+        "source_lines": [
+          4
+        ],
+        "proceeds_mode": "components",
+        "net_proceeds": "54.00",
+        "allocated_cost": "30.00",
+        "profit": "24.00",
+        "status": "complete",
+        "reasons": [],
+        "purchase_ids": [
+          "P1003"
+        ],
+        "allocations": [
+          {
+            "purchase_id": "P1003",
+            "allocated_cost": "30.00",
+            "inferred": false,
+            "source_lines": [
+              4
+            ]
+          }
+        ],
+        "source_records": [
+          {
+            "source_line": 4,
+            "raw": {
+              "headers": [
+                "sale_id",
+                "sale_date",
+                "item_revenue",
+                "shipping_revenue",
+                "refund_amount",
+                "platform_fees",
+                "fee_credits",
+                "seller_tax_liability",
+                "other_costs",
+                "currency"
+              ],
+              "values": [
+                "S1003",
+                "2026-10-15",
+                "60.00",
+                "0.00",
+                "0.00",
+                "6.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "USD"
+              ]
+            }
+          }
+        ],
+        "raw": {
+          "headers": [
+            "sale_id",
+            "sale_date",
+            "item_revenue",
+            "shipping_revenue",
+            "refund_amount",
+            "platform_fees",
+            "fee_credits",
+            "seller_tax_liability",
+            "other_costs",
+            "currency"
+          ],
+          "values": [
+            "S1003",
+            "2026-10-15",
+            "60.00",
+            "0.00",
+            "0.00",
+            "6.00",
+            "0.00",
+            "0.00",
+            "0.00",
+            "USD"
+          ]
+        },
+        "item_revenue": "60.00",
+        "shipping_revenue": "0.00",
+        "refund_amount": "0.00",
+        "platform_fees": "6.00",
+        "fee_credits": "0.00",
+        "seller_tax_liability": "0.00",
+        "other_costs": "0.00",
+        "order_earnings": null
+      },
+      {
+        "sale_id": "S1004",
+        "sale_date": "2026-10-15",
+        "currency": "USD",
+        "source_line": 5,
+        "source_lines": [
+          5
+        ],
+        "proceeds_mode": "components",
+        "net_proceeds": "144.00",
+        "allocated_cost": "30.00",
+        "profit": "114.00",
+        "status": "complete",
+        "reasons": [],
+        "purchase_ids": [
+          "P1003"
+        ],
+        "allocations": [
+          {
+            "purchase_id": "P1003",
+            "allocated_cost": "30.00",
+            "inferred": false,
+            "source_lines": [
+              5
+            ]
+          }
+        ],
+        "source_records": [
+          {
+            "source_line": 5,
+            "raw": {
+              "headers": [
+                "sale_id",
+                "sale_date",
+                "item_revenue",
+                "shipping_revenue",
+                "refund_amount",
+                "platform_fees",
+                "fee_credits",
+                "seller_tax_liability",
+                "other_costs",
+                "currency"
+              ],
+              "values": [
+                "S1004",
+                "2026-10-15",
+                "160.00",
+                "0.00",
+                "0.00",
+                "16.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "USD"
+              ]
+            }
+          }
+        ],
+        "raw": {
+          "headers": [
+            "sale_id",
+            "sale_date",
+            "item_revenue",
+            "shipping_revenue",
+            "refund_amount",
+            "platform_fees",
+            "fee_credits",
+            "seller_tax_liability",
+            "other_costs",
+            "currency"
+          ],
+          "values": [
+            "S1004",
+            "2026-10-15",
+            "160.00",
+            "0.00",
+            "0.00",
+            "16.00",
+            "0.00",
+            "0.00",
+            "0.00",
+            "USD"
+          ]
+        },
+        "item_revenue": "160.00",
+        "shipping_revenue": "0.00",
+        "refund_amount": "0.00",
+        "platform_fees": "16.00",
+        "fee_credits": "0.00",
+        "seller_tax_liability": "0.00",
+        "other_costs": "0.00",
+        "order_earnings": null
+      },
+      {
+        "sale_id": "S1005",
+        "sale_date": "2026-10-16",
+        "currency": "USD",
+        "source_line": 6,
+        "source_lines": [
+          6
+        ],
+        "proceeds_mode": "components",
+        "net_proceeds": "40.00",
+        "allocated_cost": "0.00",
+        "profit": null,
+        "status": "needs_review",
+        "reasons": [
+          "No purchase allocation linked to this sale"
+        ],
+        "purchase_ids": [],
+        "allocations": [],
+        "source_records": [
+          {
+            "source_line": 6,
+            "raw": {
+              "headers": [
+                "sale_id",
+                "sale_date",
+                "item_revenue",
+                "shipping_revenue",
+                "refund_amount",
+                "platform_fees",
+                "fee_credits",
+                "seller_tax_liability",
+                "other_costs",
+                "currency"
+              ],
+              "values": [
+                "S1005",
+                "2026-10-16",
+                "45.00",
+                "0.00",
+                "0.00",
+                "5.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "USD"
+              ]
+            }
+          }
+        ],
+        "raw": {
+          "headers": [
+            "sale_id",
+            "sale_date",
+            "item_revenue",
+            "shipping_revenue",
+            "refund_amount",
+            "platform_fees",
+            "fee_credits",
+            "seller_tax_liability",
+            "other_costs",
+            "currency"
+          ],
+          "values": [
+            "S1005",
+            "2026-10-16",
+            "45.00",
+            "0.00",
+            "0.00",
+            "5.00",
+            "0.00",
+            "0.00",
+            "0.00",
+            "USD"
+          ]
+        },
+        "item_revenue": "45.00",
+        "shipping_revenue": "0.00",
+        "refund_amount": "0.00",
+        "platform_fees": "5.00",
+        "fee_credits": "0.00",
+        "seller_tax_liability": "0.00",
+        "other_costs": "0.00",
+        "order_earnings": null
+      }
+    ],
+    "issues": [
+      {
+        "kind": "purchases",
+        "code": "orphan_purchase",
+        "message": "Purchase is not allocated to a sale",
+        "severity": "warning",
+        "source_line": 5,
+        "raw": {
+          "headers": [
+            "purchase_id",
+            "purchase_date",
+            "item_cost",
+            "shipping_cost",
+            "tax_cost",
+            "refund_amount",
+            "currency"
+          ],
+          "values": [
+            "P1004",
+            "2026-10-13",
+            "24.00",
+            "0.00",
+            "0.00",
+            "0.00",
+            "USD"
+          ]
+        },
+        "purchase_id": "P1004"
+      },
+      {
+        "kind": "sales",
+        "code": "missing_allocation",
+        "message": "No purchase allocation linked to this sale",
+        "severity": "error",
+        "source_line": 6,
+        "raw": {
+          "headers": [
+            "sale_id",
+            "sale_date",
+            "item_revenue",
+            "shipping_revenue",
+            "refund_amount",
+            "platform_fees",
+            "fee_credits",
+            "seller_tax_liability",
+            "other_costs",
+            "currency"
+          ],
+          "values": [
+            "S1005",
+            "2026-10-16",
+            "45.00",
+            "0.00",
+            "0.00",
+            "5.00",
+            "0.00",
+            "0.00",
+            "0.00",
+            "USD"
+          ]
+        },
+        "sale_id": "S1005"
+      }
+    ],
+    "currencySummaries": [
+      {
+        "currency": "USD",
+        "complete_orders": 4,
+        "needs_review_orders": 1,
+        "complete_net_proceeds": "378.00",
+        "complete_allocated_cost": "203.00",
+        "complete_other_costs": "2.00",
+        "complete_profit": "173.00",
+        "pending_known_net_proceeds": "40.00",
+        "pending_unknown_proceeds_count": 0,
+        "unallocated_purchase_cost": "24.00"
+      }
+    ],
+    "purchases": [
+      {
+        "purchase_id": "P1001",
+        "purchase_date": "2026-10-12",
+        "item_cost": "55.00",
+        "shipping_cost": "5.00",
+        "tax_cost": "3.00",
+        "refund_amount": "0.00",
+        "currency": "USD",
+        "source_line": 2,
+        "source_lines": [
+          2
+        ],
+        "net_cost": "63.00",
+        "allocated_cost": "63.00",
+        "remaining_cost": "0.00",
+        "status": "allocated",
+        "reasons": [],
+        "sale_ids": [
+          "S1001"
+        ],
+        "source_records": [
+          {
+            "source_line": 2,
+            "raw": {
+              "headers": [
+                "purchase_id",
+                "purchase_date",
+                "item_cost",
+                "shipping_cost",
+                "tax_cost",
+                "refund_amount",
+                "currency"
+              ],
+              "values": [
+                "P1001",
+                "2026-10-12",
+                "55.00",
+                "5.00",
+                "3.00",
+                "0.00",
+                "USD"
+              ]
+            }
+          }
+        ],
+        "raw": {
+          "headers": [
+            "purchase_id",
+            "purchase_date",
+            "item_cost",
+            "shipping_cost",
+            "tax_cost",
+            "refund_amount",
+            "currency"
+          ],
+          "values": [
+            "P1001",
+            "2026-10-12",
+            "55.00",
+            "5.00",
+            "3.00",
+            "0.00",
+            "USD"
+          ]
+        }
+      },
+      {
+        "purchase_id": "P1002",
+        "purchase_date": "2026-10-12",
+        "item_cost": "80.00",
+        "shipping_cost": "0.00",
+        "tax_cost": "0.00",
+        "refund_amount": "0.00",
+        "currency": "USD",
+        "source_line": 3,
+        "source_lines": [
+          3
+        ],
+        "net_cost": "80.00",
+        "allocated_cost": "80.00",
+        "remaining_cost": "0.00",
+        "status": "allocated",
+        "reasons": [],
+        "sale_ids": [
+          "S1002"
+        ],
+        "source_records": [
+          {
+            "source_line": 3,
+            "raw": {
+              "headers": [
+                "purchase_id",
+                "purchase_date",
+                "item_cost",
+                "shipping_cost",
+                "tax_cost",
+                "refund_amount",
+                "currency"
+              ],
+              "values": [
+                "P1002",
+                "2026-10-12",
+                "80.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "USD"
+              ]
+            }
+          }
+        ],
+        "raw": {
+          "headers": [
+            "purchase_id",
+            "purchase_date",
+            "item_cost",
+            "shipping_cost",
+            "tax_cost",
+            "refund_amount",
+            "currency"
+          ],
+          "values": [
+            "P1002",
+            "2026-10-12",
+            "80.00",
+            "0.00",
+            "0.00",
+            "0.00",
+            "USD"
+          ]
+        }
+      },
+      {
+        "purchase_id": "P1003",
+        "purchase_date": "2026-10-13",
+        "item_cost": "60.00",
+        "shipping_cost": "0.00",
+        "tax_cost": "0.00",
+        "refund_amount": "0.00",
+        "currency": "USD",
+        "source_line": 4,
+        "source_lines": [
+          4
+        ],
+        "net_cost": "60.00",
+        "allocated_cost": "60.00",
+        "remaining_cost": "0.00",
+        "status": "allocated",
+        "reasons": [],
+        "sale_ids": [
+          "S1003",
+          "S1004"
+        ],
+        "source_records": [
+          {
+            "source_line": 4,
+            "raw": {
+              "headers": [
+                "purchase_id",
+                "purchase_date",
+                "item_cost",
+                "shipping_cost",
+                "tax_cost",
+                "refund_amount",
+                "currency"
+              ],
+              "values": [
+                "P1003",
+                "2026-10-13",
+                "60.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "USD"
+              ]
+            }
+          }
+        ],
+        "raw": {
+          "headers": [
+            "purchase_id",
+            "purchase_date",
+            "item_cost",
+            "shipping_cost",
+            "tax_cost",
+            "refund_amount",
+            "currency"
+          ],
+          "values": [
+            "P1003",
+            "2026-10-13",
+            "60.00",
+            "0.00",
+            "0.00",
+            "0.00",
+            "USD"
+          ]
+        }
+      },
+      {
+        "purchase_id": "P1004",
+        "purchase_date": "2026-10-13",
+        "item_cost": "24.00",
+        "shipping_cost": "0.00",
+        "tax_cost": "0.00",
+        "refund_amount": "0.00",
+        "currency": "USD",
+        "source_line": 5,
+        "source_lines": [
+          5
+        ],
+        "net_cost": "24.00",
+        "allocated_cost": "0.00",
+        "remaining_cost": "24.00",
+        "status": "unallocated",
+        "reasons": [
+          "Purchase is not allocated to a sale"
+        ],
+        "sale_ids": [],
+        "source_records": [
+          {
+            "source_line": 5,
+            "raw": {
+              "headers": [
+                "purchase_id",
+                "purchase_date",
+                "item_cost",
+                "shipping_cost",
+                "tax_cost",
+                "refund_amount",
+                "currency"
+              ],
+              "values": [
+                "P1004",
+                "2026-10-13",
+                "24.00",
+                "0.00",
+                "0.00",
+                "0.00",
+                "USD"
+              ]
+            }
+          }
+        ],
+        "raw": {
+          "headers": [
+            "purchase_id",
+            "purchase_date",
+            "item_cost",
+            "shipping_cost",
+            "tax_cost",
+            "refund_amount",
+            "currency"
+          ],
+          "values": [
+            "P1004",
+            "2026-10-13",
+            "24.00",
+            "0.00",
+            "0.00",
+            "0.00",
+            "USD"
+          ]
+        }
+      }
+    ],
+    "meta": {
+      "sales_source_rows": 5,
+      "purchase_source_rows": 4,
+      "allocation_source_rows": 4,
+      "complete_orders": 4,
+      "needs_review_orders": 1,
+      "issue_count": 2,
+      "proceeds_mode": "components",
+      "data_as_of": "2026-10-16",
+      "profit_basis": "Order contribution profit before overheads and income tax"
+    },
+    "sources": {
+      "sales": {
+        "headers": [
+          "sale_id",
+          "sale_date",
+          "item_revenue",
+          "shipping_revenue",
+          "refund_amount",
+          "platform_fees",
+          "fee_credits",
+          "seller_tax_liability",
+          "other_costs",
+          "currency"
+        ],
+        "options": {
+          "dateFormat": "iso",
+          "moneyFormat": "dot",
+          "proceedsMode": "components",
+          "dataAsOf": "2026-10-16"
+        },
+        "sourceRowCount": 5,
+        "sourceText": "sale_id,sale_date,item_revenue,shipping_revenue,refund_amount,platform_fees,fee_credits,seller_tax_liability,other_costs,currency\nS1001,2026-10-14,120.00,5.00,0.00,15.00,0.00,0.00,2.00,USD\nS1002,2026-10-14,90.00,0.00,10.00,12.00,2.00,0.00,0.00,USD\nS1003,2026-10-15,60.00,0.00,0.00,6.00,0.00,0.00,0.00,USD\nS1004,2026-10-15,160.00,0.00,0.00,16.00,0.00,0.00,0.00,USD\nS1005,2026-10-16,45.00,0.00,0.00,5.00,0.00,0.00,0.00,USD\n"
+      },
+      "purchases": {
+        "headers": [
+          "purchase_id",
+          "purchase_date",
+          "item_cost",
+          "shipping_cost",
+          "tax_cost",
+          "refund_amount",
+          "currency"
+        ],
+        "options": {
+          "dateFormat": "iso",
+          "moneyFormat": "dot",
+          "proceedsMode": "components",
+          "dataAsOf": "2026-10-16"
+        },
+        "sourceRowCount": 4,
+        "sourceText": "purchase_id,purchase_date,item_cost,shipping_cost,tax_cost,refund_amount,currency\nP1001,2026-10-12,55.00,5.00,3.00,0.00,USD\nP1002,2026-10-12,80.00,0.00,0.00,0.00,USD\nP1003,2026-10-13,60.00,0.00,0.00,0.00,USD\nP1004,2026-10-13,24.00,0.00,0.00,0.00,USD\n"
+      },
+      "allocations": {
+        "headers": [
+          "sale_id",
+          "purchase_id",
+          "allocated_cost"
+        ],
+        "options": {
+          "dateFormat": "iso",
+          "moneyFormat": "dot",
+          "proceedsMode": "components",
+          "dataAsOf": "2026-10-16"
+        },
+        "sourceRowCount": 4,
+        "sourceText": "sale_id,purchase_id,allocated_cost\nS1001,P1001,\nS1002,P1002,\nS1003,P1003,30.00\nS1004,P1003,30.00\n"
+      }
+    }
+  }
+}

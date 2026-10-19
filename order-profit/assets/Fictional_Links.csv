@@ -1,0 +1,5 @@
+sale_id,purchase_id,allocated_cost
+S1001,P1001,
+S1002,P1002,
+S1003,P1003,30.00
+S1004,P1003,30.00

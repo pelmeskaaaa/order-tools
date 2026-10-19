@@ -1,0 +1,3 @@
+﻿kind,source_line,sale_id,purchase_id,code,message,raw
+purchases,5,,P1004,orphan_purchase,Purchase is not allocated to a sale,"{""headers"":[""purchase_id"",""purchase_date"",""item_cost"",""shipping_cost"",""tax_cost"",""refund_amount"",""currency""],""values"":[""P1004"",""2026-10-13"",""24.00"",""0.00"",""0.00"",""0.00"",""USD""]}"
+sales,6,S1005,,missing_allocation,No purchase allocation linked to this sale,"{""headers"":[""sale_id"",""sale_date"",""item_revenue"",""shipping_revenue"",""refund_amount"",""platform_fees"",""fee_credits"",""seller_tax_liability"",""other_costs"",""currency""],""values"":[""S1005"",""2026-10-16"",""45.00"",""0.00"",""0.00"",""5.00"",""0.00"",""0.00"",""0.00"",""USD""]}"

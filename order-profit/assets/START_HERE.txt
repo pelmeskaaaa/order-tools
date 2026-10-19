@@ -1,0 +1,34 @@
+ORDER PROFIT RECONCILER
+Free fictional example
+By Oleh Boiko
+
+These are static input files and actual computed results, not the paid app.
+The sample uses prepared totals for each order, not native marketplace exports.
+There is no code in this preview download.
+
+Start with Order_Profit_Reconciliation.csv. Four completed orders have
+contribution profit USD 45.00, -10.00, 24.00 and 114.00, totalling USD 173.00.
+S1005 has USD 40.00 known proceeds but no purchase link. Its profit and purchase
+cost are left blank. P1004 has USD 24.00 cost not allocated to a sale.
+
+For S1001, sales row 2 gives 120 + 5 - 15 = 110 in net proceeds.
+Purchases row 2 gives 55 + 5 + 3 = 63 in net cost.
+Links row 2 assigns that entire purchase to S1001.
+Then 110 - 63 - 2 other costs = 45 contribution profit.
+
+P1003 is shared by S1003 and S1004 through two explicit allocations of 30.00.
+The two amounts sum to its complete net cost of 60.00.
+
+Unresolved_Records.csv lists the unmatched sale and unallocated purchase.
+Order_Profit_Audit.json includes the original input text and full result.
+All figures are synthetic. The snapshot date is 2026-10-16.
+
+Contribution profit is before overheads and income tax. No currency conversion.
+The paid offline app imports prepared sale, purchase and allocation CSVs with
+explicit field mapping and formats. It does not connect to marketplace APIs
+or guarantee automatic import of arbitrary native eBay or Amazon exports.
+One row must hold totals for a complete sale or supplier purchase.
+Use eBay Order earnings, not Net order earnings, if choosing earnings mode.
+Known-zero fields and a fixed currency are explicit choices, not assumptions.
+The as-of date labels the supplied snapshot. It does not filter input rows.
+Later refunds or adjustments can change a snapshot.

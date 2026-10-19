@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Inspect a fictional order report, check accepted and rejected rows, and download the free CSV and Excel sample. By Oleh Boiko.">
+  <meta name="color-scheme" content="light">
+  <title>CSV Order Report Kit — Free sample by Oleh Boiko</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="assets/data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#report">Skip to sample report</a>
+  <header class="site-header wrap">
+    <a class="wordmark" href="#top">Oleh Boiko</a>
+    <span class="header-note">CSV Order Report Kit <span aria-hidden="true">/</span> Free preview</span>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Open the sample</p>
+        <h1 id="hero-title">See the result.<br>Check the rows.</h1>
+        <p class="intro">Explore a complete order report. Follow each accepted, duplicate and rejected row back to its source.</p>
+        <p class="sample-note">Fictional sample. Saved results.<br>No code included in the free sample.</p>
+        <a class="text-link" href="#report">Explore the report <span aria-hidden="true">↓</span></a>
+      </div>
+      <aside class="download-box" aria-labelledby="download-title">
+        <p class="eyebrow">Free download</p>
+        <h2 id="download-title">Keep the files.<br>Check them yourself.</h2>
+        <p>The original CSV, finished Excel report and sample notes. No checkout required.</p>
+        <a class="button primary" href="assets/sample.zip" download="CSV_Order_Report_Free_Preview.zip">Download free sample <span aria-hidden="true">↓</span></a>
+        <div class="individual-downloads">
+          <a href="assets/orders.csv" download="orders.csv">Original CSV <span aria-hidden="true">↗</span></a>
+          <a href="assets/Order_Report.xlsx" download="Order_Report.xlsx">Finished Excel <span aria-hidden="true">↗</span></a>
+        </div>
+      </aside>
+    </section>
+
+    <section class="report-section wrap" id="report" aria-labelledby="report-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">The included sample</p><h2 id="report-title">Every row accounted for.</h2></div>
+        <p class="saved-label">Saved report <span aria-hidden="true">·</span> USD</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Sample report views">
+        <button id="tab-summary" class="tab" role="tab" aria-selected="true" aria-controls="panel-summary" tabindex="0" data-view="summary">Summary</button>
+        <button id="tab-accepted" class="tab" role="tab" aria-selected="false" aria-controls="panel-accepted" tabindex="-1" data-view="accepted">Accepted orders <span class="tab-count">16</span></button>
+        <button id="tab-review" class="tab" role="tab" aria-selected="false" aria-controls="panel-review" tabindex="-1" data-view="review">Needs review <span class="tab-count">10</span></button>
+      </div>
+
+      <div id="panel-summary" class="tab-panel" role="tabpanel" aria-labelledby="tab-summary" tabindex="0">
+        <div class="summary-top">
+          <div class="revenue-block"><p class="metric-label">Accepted revenue</p><p class="revenue" id="revenue">$973.69</p><p class="revenue-detail"><span id="unit-count">48</span> units across <span id="accepted-count">16</span> accepted orders</p></div>
+          <div class="row-flow" aria-label="26 input rows equals 16 accepted, 2 exact duplicates and 8 rejected">
+            <div class="input-total"><strong id="input-count">26</strong><span>input rows</span></div>
+            <span class="equals" aria-hidden="true">=</span>
+            <div class="flow-parts"><div><strong id="flow-accepted">16</strong><span>accepted</span></div><div><strong id="duplicate-count">2</strong><span>exact duplicates</span></div><div><strong id="rejected-count">8</strong><span>rejected</span></div></div>
+          </div>
+        </div>
+        <div class="summary-tables">
+          <div><h3>By month</h3><div class="table-scroll" tabindex="0" aria-label="Monthly totals table"><table><caption class="sr-only">Accepted order totals by month, in USD</caption><thead><tr><th scope="col">Month</th><th scope="col" class="number">Orders</th><th scope="col" class="number">Units</th><th scope="col" class="number">Revenue</th></tr></thead><tbody id="monthly-rows"></tbody></table></div></div>
+          <div><h3>By category</h3><div class="table-scroll" tabindex="0" aria-label="Category totals table"><table><caption class="sr-only">Accepted order totals by category, in USD</caption><thead><tr><th scope="col">Category</th><th scope="col" class="number">Orders</th><th scope="col" class="number">Units</th><th scope="col" class="number">Revenue</th></tr></thead><tbody id="category-rows"></tbody></table></div></div>
+        </div>
+        <p class="panel-note">Totals include accepted orders only. Exact duplicates and rejected records are excluded.</p>
+      </div>
+
+      <div id="panel-accepted" class="tab-panel" role="tabpanel" aria-labelledby="tab-accepted" tabindex="0" hidden>
+        <div class="panel-tools"><div><h3>Accepted orders</h3><p>Validated rows used in the totals.</p></div><label class="search-label" for="accepted-search">Search order ID<input type="search" id="accepted-search" placeholder="For example, R1001" autocomplete="off" spellcheck="false"></label></div>
+        <p id="accepted-status" class="result-status" role="status" aria-live="polite"></p>
+        <p class="scroll-hint">Scroll sideways to see all columns.</p>
+        <div class="table-scroll detail-table" tabindex="0" aria-label="Accepted orders. Scroll horizontally to see all columns."><table><caption class="sr-only">Accepted orders, with original CSV source row numbers</caption><thead><tr><th scope="col">CSV row</th><th scope="col">Order ID</th><th scope="col">Date</th><th scope="col">Category</th><th scope="col" class="number">Qty</th><th scope="col" class="number">Unit price</th><th scope="col" class="number">Revenue</th></tr></thead><tbody id="accepted-rows"></tbody></table></div>
+        <p class="panel-note">USD throughout. Revenue = quantity × unit price. Source row numbers include the CSV header.</p>
+      </div>
+
+      <div id="panel-review" class="tab-panel" role="tabpanel" aria-labelledby="tab-review" tabindex="0" hidden>
+        <div class="panel-tools"><div><h3>Needs review</h3><p>2 exact duplicates and 8 rejected rows. Original values shown.</p></div><label class="search-label" for="review-search">Search order ID or reason<input type="search" id="review-search" placeholder="Try R1017 or invalid date" autocomplete="off" spellcheck="false"></label></div>
+        <p id="review-status" class="result-status" role="status" aria-live="polite"></p>
+        <p class="scroll-hint">Scroll sideways to see all columns.</p>
+        <div class="table-scroll detail-table review-table" tabindex="0" aria-label="Rows needing review. Scroll horizontally to see all columns."><table><caption class="sr-only">Excluded orders, their original values and rejection or duplicate reason</caption><thead><tr><th scope="col">CSV row</th><th scope="col">Order / date</th><th scope="col">Category</th><th scope="col" class="number">Qty / price</th><th scope="col">Result</th><th scope="col">Reason</th></tr></thead><tbody id="review-rows"></tbody></table></div>
+        <p class="panel-note">All versions of conflicting order IDs are withheld. Nothing in this preview edits or repairs the source file.</p>
+      </div>
+      <noscript><p class="noscript">JavaScript is needed to switch views and search rows. All sample files can still be downloaded using the links above.</p></noscript>
+    </section>
+
+    <section class="kit-section wrap" aria-labelledby="kit-title">
+      <div><p class="eyebrow">Run it on your orders</p><h2 id="kit-title">The full Python kit.</h2><p>Generate the same report from your own CSV in the supported format. Includes source code, an input template, a Quick Start guide and category settings you can edit without changing the code.</p></div>
+      <div class="kit-action"><a class="button primary" href="https://contra.com/products/2sqxmEgG-csv-order-report-kit" rel="noopener noreferrer">Get the full kit — $19 <span aria-hidden="true">↗</span></a><p>One-time digital download on Contra.</p></div>
+      <div class="requirements"><p><strong>Before you buy</strong> Python 3.10+ and openpyxl are required. The kit accepts a fixed six-column order schema and USD. Categories are set in a JSON list. Stationery, Home and Accessories are the defaults.</p><code>order_id,order_date,category,quantity,unit_price,currency</code><p>Saved Excel values are refreshed by rerunning the script. Arbitrary store exports and other currencies require code changes. Each row must represent one complete order.</p></div>
+    </section>
+  </main>
+  <footer class="site-footer wrap"><span>Oleh Boiko</span><p>Fictional data. Static preview. Your files stay with you — this page has no upload or data processing.</p></footer>
+</body>
+</html>

@@ -1,0 +1,6 @@
+﻿sale_id,sale_date,currency,net_proceeds,allocated_cost,cost_status,other_costs,profit,status,purchase_ids,reasons,source_line
+S1001,2026-10-14,USD,110.00,63.00,complete,2.00,45.00,complete,P1001,,2
+S1002,2026-10-14,USD,70.00,80.00,complete,0.00,-10.00,complete,P1002,,3
+S1003,2026-10-15,USD,54.00,30.00,complete,0.00,24.00,complete,P1003,,4
+S1004,2026-10-15,USD,144.00,30.00,complete,0.00,114.00,complete,P1003,,5
+S1005,2026-10-16,USD,40.00,,unknown,0.00,,needs_review,,No purchase allocation linked to this sale,6
