@@ -1,4 +1,4 @@
-sale_id,date,platform,item_skus,currency,gross_amount,shipping_income,fees,postage,other_costs,refunds,fee_credits,return_postage,net_receipts,known_purchase_cost,unknown_cost_items,profit
+﻿sale_id,date,platform,item_skus,currency,gross_amount,shipping_income,fees,postage,other_costs,refunds,fee_credits,return_postage,net_receipts,known_purchase_cost,unknown_cost_items,profit
 coat-sale-1,2026-09-02,eBay,COAT-001,GBP,20.00,2.00,2.00,3.00,0.00,22.00,1.00,4.00,-8.00,0.00,0,-8.00
 coat-sale-2,2026-09-06,eBay,COAT-001,GBP,20.00,2.00,2.00,3.00,0.00,22.00,1.00,4.00,-8.00,0.00,0,-8.00
 coat-sale-3,2026-09-10,eBay,COAT-001,GBP,20.00,2.00,2.00,3.00,0.00,22.00,1.00,4.00,-8.00,0.00,0,-8.00
