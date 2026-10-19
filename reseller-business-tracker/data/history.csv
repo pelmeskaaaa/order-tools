@@ -1,0 +1,13 @@
+﻿sku,event,date,sale_id,label,details,purchase_cost,gross_amount,refund_amount,fee_credit,return_postage,currency
+JACKET-001,purchase,2026-08-01,,Bought in a lot,Denim jacket,12.00,,,,,GBP
+JACKET-001,sale,2026-09-02,jacket-first-sale,Sold on eBay,Order fees and postage remain in the full sale record.,,30.00,,,,GBP
+JACKET-001,return,2026-09-06,jacket-first-sale,Returned to stock,Fictional full refund; inspected and returned to stock.,,,33.00,3.00,3.50,GBP
+JACKET-001,sale,2026-09-12,jacket-resale,Sold on Vinted,Order fees and postage remain in the full sale record.,,28.00,,,,GBP
+SHOES-002,purchase,2026-08-01,,Bought in a lot,Leather shoes,8.00,,,,,GBP
+SHOES-002,sale,2026-09-15,clothing-bundle-sale,Sold on Depop,Order fees and postage remain in the full sale record.,,20.00,,,,GBP
+SHIRT-003,purchase,2026-08-01,,Bought in a lot,Cotton shirt,5.00,,,,,GBP
+SHIRT-003,sale,2026-09-15,clothing-bundle-sale,Sold on Depop,Order fees and postage remain in the full sale record.,,15.00,,,,GBP
+CAMERA-004,purchase,2026-08-05,,Bought,Compact camera,40.00,,,,,GBP
+CAMERA-004,sale,2026-09-08,camera-sale,Sold on eBay,Order fees and postage remain in the full sale record.,,65.00,,,,GBP
+SCARF-005,purchase,2026-08-10,,Bought,Vintage scarf,,,,,,GBP
+KNIT-006,purchase,2026-08-12,,Bought,Wool jumper,7.00,,,,,GBP

@@ -1,0 +1,5 @@
+﻿sale_id,date,platform,item_skus,currency,gross_amount,shipping_income,fees,postage,other_costs,refunds,fee_credits,return_postage,net_receipts,known_purchase_cost,unknown_cost_items,profit
+jacket-first-sale,2026-09-02,eBay,JACKET-001,GBP,30.00,3.00,4.00,3.50,0.50,33.00,3.00,3.50,-8.50,0.00,0,-8.50
+camera-sale,2026-09-08,eBay,CAMERA-004,GBP,65.00,5.00,8.00,6.00,1.00,0.00,0.00,0.00,55.00,40.00,0,15.00
+jacket-resale,2026-09-12,Vinted,JACKET-001,GBP,28.00,0.00,0.00,0.00,0.00,0.00,0.00,0.00,28.00,12.00,0,16.00
+clothing-bundle-sale,2026-09-15,Depop,SHOES-002 | SHIRT-003,GBP,35.00,4.00,4.50,4.50,0.50,0.00,0.00,0.00,29.50,13.00,0,16.50

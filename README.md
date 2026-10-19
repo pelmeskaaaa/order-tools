@@ -9,4 +9,4 @@ The downloads contain free sample inputs and outputs. The paid tools are sold se
 
 Copyright 2026 Oleh Boiko. No license to resell the example materials is granted.
 
-- [Reseller Stock Tracker example](https://pelmeskaaaa.github.io/order-tools/reseller-stock-tracker/)
+- [Reseller Business Tracker example](https://pelmeskaaaa.github.io/order-tools/reseller-business-tracker/)

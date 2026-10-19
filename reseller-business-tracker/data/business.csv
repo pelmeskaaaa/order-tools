@@ -1,0 +1,2 @@
+﻿as_of,currency,gross_amount,shipping_income,refunds,net_receipts,known_cost_of_goods_sold,unknown_cost_items,sale_contribution,expense_count,operating_expenses,profit_after_expenses,known_purchase_costs,unknown_purchase_cost_items,known_cash_after_purchases_and_expenses_incomplete_if_unknown,cash_after_purchases_and_expenses,known_stock_cost,unknown_stock_cost_items,fees_net_of_credits,outbound_postage,return_postage,other_sale_costs
+2026-10-19,GBP,158.00,12.00,33.00,104.00,65.00,0,39.00,3,34.00,5.00,72.00,1,-2.00,,7.00,1,13.50,14.00,3.50,2.00

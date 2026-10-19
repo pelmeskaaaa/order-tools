@@ -1,0 +1,2 @@
+﻿return_id,sale_id,sku,date,currency,refund_amount,fee_credit,return_postage,restocked,reason
+jacket-return,jacket-first-sale,JACKET-001,2026-09-06,GBP,33.00,3.00,3.50,yes,Fictional full refund; inspected and returned to stock.

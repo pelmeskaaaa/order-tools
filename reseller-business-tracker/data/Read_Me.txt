@@ -1,0 +1,1 @@
+Fictional sample records for Reseller Business Tracker. The original profit after recorded expenses is GBP 5.00. These are data and expected results only. They do not include the paid application. The small calculator on the preview page changes only its displayed example, not these downloads.

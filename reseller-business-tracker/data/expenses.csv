@@ -1,0 +1,4 @@
+﻿expense_id,date,category,amount,currency,note
+expense-storage,2026-09-01,Storage,18.00,GBP,Fictional storage charge; separate from purchases and order costs.
+expense-supplies,2026-09-03,Packaging,7.00,GBP,Fictional general packaging purchase; not already entered against a sale.
+expense-tools,2026-09-10,Software,9.00,GBP,Fictional monthly listing tool.

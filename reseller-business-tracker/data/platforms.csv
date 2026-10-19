@@ -1,0 +1,4 @@
+﻿platform,sales_count,currency,net_receipts,known_cost_of_goods_sold,unknown_cost_items,sale_contribution
+Depop,1,GBP,29.50,13.00,0,16.50
+eBay,2,GBP,46.50,40.00,0,6.50
+Vinted,1,GBP,28.00,12.00,0,16.00

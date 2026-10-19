@@ -1,0 +1,394 @@
+{
+  "asOf": "2026-10-19",
+  "currency": "GBP",
+  "totals": {
+    "items": 6,
+    "inStock": 2,
+    "sold": 4,
+    "returnedOut": 0,
+    "knownStockCostPence": 700,
+    "unknownStockCostCount": 1,
+    "salesCount": 4,
+    "returnCount": 1,
+    "grossPence": 15800,
+    "shippingIncomePence": 1200,
+    "feesPence": 1650,
+    "postagePence": 1400,
+    "otherPence": 200,
+    "refundsPence": 3300,
+    "feeCreditsPence": 300,
+    "returnPostagePence": 350,
+    "netReceiptsPence": 10400,
+    "knownCogsPence": 6500,
+    "unknownCogsCount": 0,
+    "profitPence": 3900
+  },
+  "items": [
+    {
+      "id": "jacket",
+      "sku": "JACKET-001",
+      "name": "Denim jacket",
+      "listings": [
+        "eBay",
+        "Vinted"
+      ],
+      "boughtOn": "2026-08-01",
+      "costPence": 1200,
+      "lotId": "business-lot-001",
+      "acquiredDate": "2026-08-01",
+      "status": "sold",
+      "daysSinceBought": 79,
+      "daysInStock": 38,
+      "currentStockDays": 0,
+      "stockSince": null,
+      "lastSaleId": "jacket-resale",
+      "lastSalePlatform": "Vinted",
+      "lastSaleDate": "2026-09-12",
+      "delistPlatforms": [
+        "eBay"
+      ]
+    },
+    {
+      "id": "shoes",
+      "sku": "SHOES-002",
+      "name": "Leather shoes",
+      "listings": [
+        "Depop",
+        "eBay"
+      ],
+      "boughtOn": "2026-08-01",
+      "costPence": 800,
+      "lotId": "business-lot-001",
+      "acquiredDate": "2026-08-01",
+      "status": "sold",
+      "daysSinceBought": 79,
+      "daysInStock": 45,
+      "currentStockDays": 0,
+      "stockSince": null,
+      "lastSaleId": "clothing-bundle-sale",
+      "lastSalePlatform": "Depop",
+      "lastSaleDate": "2026-09-15",
+      "delistPlatforms": [
+        "eBay"
+      ]
+    },
+    {
+      "id": "shirt",
+      "sku": "SHIRT-003",
+      "name": "Cotton shirt",
+      "listings": [
+        "Depop",
+        "Vinted"
+      ],
+      "boughtOn": "2026-08-01",
+      "costPence": 500,
+      "lotId": "business-lot-001",
+      "acquiredDate": "2026-08-01",
+      "status": "sold",
+      "daysSinceBought": 79,
+      "daysInStock": 45,
+      "currentStockDays": 0,
+      "stockSince": null,
+      "lastSaleId": "clothing-bundle-sale",
+      "lastSalePlatform": "Depop",
+      "lastSaleDate": "2026-09-15",
+      "delistPlatforms": [
+        "Vinted"
+      ]
+    },
+    {
+      "id": "camera",
+      "sku": "CAMERA-004",
+      "name": "Compact camera",
+      "boughtOn": "2026-08-05",
+      "costPence": 4000,
+      "listings": [
+        "eBay"
+      ],
+      "notes": "Fictional purchased stock. Tested before sale.",
+      "acquiredDate": "2026-08-05",
+      "status": "sold",
+      "daysSinceBought": 75,
+      "daysInStock": 34,
+      "currentStockDays": 0,
+      "stockSince": null,
+      "lastSaleId": "camera-sale",
+      "lastSalePlatform": "eBay",
+      "lastSaleDate": "2026-09-08",
+      "delistPlatforms": []
+    },
+    {
+      "id": "scarf",
+      "sku": "SCARF-005",
+      "name": "Vintage scarf",
+      "boughtOn": "2026-08-10",
+      "costPence": null,
+      "listings": [
+        "Vinted"
+      ],
+      "notes": "Fictional missing receipt: cost is unknown, not zero.",
+      "acquiredDate": "2026-08-10",
+      "status": "in_stock",
+      "daysSinceBought": 70,
+      "daysInStock": 70,
+      "currentStockDays": 70,
+      "stockSince": "2026-08-10",
+      "lastSaleId": null,
+      "lastSalePlatform": null,
+      "lastSaleDate": null,
+      "delistPlatforms": []
+    },
+    {
+      "id": "knit",
+      "sku": "KNIT-006",
+      "name": "Wool jumper",
+      "boughtOn": "2026-08-12",
+      "costPence": 700,
+      "listings": [
+        "Vinted",
+        "Depop"
+      ],
+      "notes": "Fictional unsold stock. Its cost ties up cash but is not a sold-item expense.",
+      "acquiredDate": "2026-08-12",
+      "status": "in_stock",
+      "daysSinceBought": 68,
+      "daysInStock": 68,
+      "currentStockDays": 68,
+      "stockSince": "2026-08-12",
+      "lastSaleId": null,
+      "lastSalePlatform": null,
+      "lastSaleDate": null,
+      "delistPlatforms": []
+    }
+  ],
+  "sales": [
+    {
+      "id": "jacket-first-sale",
+      "date": "2026-09-02",
+      "platform": "eBay",
+      "items": [
+        {
+          "itemId": "jacket",
+          "grossPence": 3000
+        }
+      ],
+      "shippingIncomePence": 300,
+      "feesPence": 400,
+      "postagePence": 350,
+      "otherPence": 50,
+      "grossPence": 3000,
+      "refundsPence": 3300,
+      "feeCreditsPence": 300,
+      "returnPostagePence": 350,
+      "netReceiptsPence": -850,
+      "knownCogsPence": 0,
+      "unknownCogsCount": 0,
+      "profitPence": -850,
+      "returnCount": 1
+    },
+    {
+      "id": "camera-sale",
+      "date": "2026-09-08",
+      "platform": "eBay",
+      "items": [
+        {
+          "itemId": "camera",
+          "grossPence": 6500
+        }
+      ],
+      "shippingIncomePence": 500,
+      "feesPence": 800,
+      "postagePence": 600,
+      "otherPence": 100,
+      "grossPence": 6500,
+      "refundsPence": 0,
+      "feeCreditsPence": 0,
+      "returnPostagePence": 0,
+      "netReceiptsPence": 5500,
+      "knownCogsPence": 4000,
+      "unknownCogsCount": 0,
+      "profitPence": 1500,
+      "returnCount": 0
+    },
+    {
+      "id": "jacket-resale",
+      "date": "2026-09-12",
+      "platform": "Vinted",
+      "items": [
+        {
+          "itemId": "jacket",
+          "grossPence": 2800
+        }
+      ],
+      "shippingIncomePence": 0,
+      "feesPence": 0,
+      "postagePence": 0,
+      "otherPence": 0,
+      "grossPence": 2800,
+      "refundsPence": 0,
+      "feeCreditsPence": 0,
+      "returnPostagePence": 0,
+      "netReceiptsPence": 2800,
+      "knownCogsPence": 1200,
+      "unknownCogsCount": 0,
+      "profitPence": 1600,
+      "returnCount": 0
+    },
+    {
+      "id": "clothing-bundle-sale",
+      "date": "2026-09-15",
+      "platform": "Depop",
+      "items": [
+        {
+          "itemId": "shoes",
+          "grossPence": 2000
+        },
+        {
+          "itemId": "shirt",
+          "grossPence": 1500
+        }
+      ],
+      "shippingIncomePence": 400,
+      "feesPence": 450,
+      "postagePence": 450,
+      "otherPence": 50,
+      "grossPence": 3500,
+      "refundsPence": 0,
+      "feeCreditsPence": 0,
+      "returnPostagePence": 0,
+      "netReceiptsPence": 2950,
+      "knownCogsPence": 1300,
+      "unknownCogsCount": 0,
+      "profitPence": 1650,
+      "returnCount": 0
+    }
+  ],
+  "returns": [
+    {
+      "id": "jacket-return",
+      "saleId": "jacket-first-sale",
+      "itemId": "jacket",
+      "date": "2026-09-06",
+      "refundPence": 3300,
+      "feeCreditPence": 300,
+      "returnPostagePence": 350,
+      "restock": true,
+      "reason": "Fictional full refund; inspected and returned to stock."
+    }
+  ],
+  "delistReminders": [
+    {
+      "itemId": "jacket",
+      "sku": "JACKET-001",
+      "name": "Denim jacket",
+      "platforms": [
+        "eBay"
+      ],
+      "soldOn": "2026-09-12",
+      "soldPlatform": "Vinted"
+    },
+    {
+      "itemId": "shoes",
+      "sku": "SHOES-002",
+      "name": "Leather shoes",
+      "platforms": [
+        "eBay"
+      ],
+      "soldOn": "2026-09-15",
+      "soldPlatform": "Depop"
+    },
+    {
+      "itemId": "shirt",
+      "sku": "SHIRT-003",
+      "name": "Cotton shirt",
+      "platforms": [
+        "Vinted"
+      ],
+      "soldOn": "2026-09-15",
+      "soldPlatform": "Depop"
+    }
+  ],
+  "expenses": [
+    {
+      "id": "expense-storage",
+      "date": "2026-09-01",
+      "category": "Storage",
+      "amountPence": 1800,
+      "note": "Fictional storage charge; separate from purchases and order costs."
+    },
+    {
+      "id": "expense-supplies",
+      "date": "2026-09-03",
+      "category": "Packaging",
+      "amountPence": 700,
+      "note": "Fictional general packaging purchase; not already entered against a sale."
+    },
+    {
+      "id": "expense-tools",
+      "date": "2026-09-10",
+      "category": "Software",
+      "amountPence": 900,
+      "note": "Fictional monthly listing tool."
+    }
+  ],
+  "business": {
+    "expensesPence": 3400,
+    "expenseCount": 3,
+    "profitAfterExpensesPence": 500,
+    "knownPurchaseCostsPence": 7200,
+    "unknownPurchaseCostCount": 1,
+    "knownCashAfterPurchasesAndExpensesPence": -200,
+    "cashAfterPurchasesAndExpensesPence": null,
+    "costBreakdown": {
+      "knownCogsPence": 6500,
+      "feesNetOfCreditsPence": 1350,
+      "postagePence": 1400,
+      "returnPostagePence": 350,
+      "otherSaleCostsPence": 200,
+      "operatingExpensesPence": 3400
+    },
+    "expensesByCategory": [
+      {
+        "category": "Packaging",
+        "amountPence": 700,
+        "expenseCount": 1
+      },
+      {
+        "category": "Software",
+        "amountPence": 900,
+        "expenseCount": 1
+      },
+      {
+        "category": "Storage",
+        "amountPence": 1800,
+        "expenseCount": 1
+      }
+    ],
+    "platforms": [
+      {
+        "platform": "Depop",
+        "salesCount": 1,
+        "netReceiptsPence": 2950,
+        "knownCogsPence": 1300,
+        "unknownCogsCount": 0,
+        "profitPence": 1650
+      },
+      {
+        "platform": "eBay",
+        "salesCount": 2,
+        "netReceiptsPence": 4650,
+        "knownCogsPence": 4000,
+        "unknownCogsCount": 0,
+        "profitPence": 650
+      },
+      {
+        "platform": "Vinted",
+        "salesCount": 1,
+        "netReceiptsPence": 2800,
+        "knownCogsPence": 1200,
+        "unknownCogsCount": 0,
+        "profitPence": 1600
+      }
+    ]
+  }
+}

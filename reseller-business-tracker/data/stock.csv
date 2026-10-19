@@ -1,0 +1,7 @@
+﻿sku,name,status,bought_on,purchase_cost,currency,days_since_bought,days_in_stock,current_stock_days,listings,delist_reminders,notes
+JACKET-001,Denim jacket,sold,2026-08-01,12.00,GBP,79,38,0,eBay | Vinted,eBay,
+SHOES-002,Leather shoes,sold,2026-08-01,8.00,GBP,79,45,0,Depop | eBay,eBay,
+SHIRT-003,Cotton shirt,sold,2026-08-01,5.00,GBP,79,45,0,Depop | Vinted,Vinted,
+CAMERA-004,Compact camera,sold,2026-08-05,40.00,GBP,75,34,0,eBay,,Fictional purchased stock. Tested before sale.
+SCARF-005,Vintage scarf,in_stock,2026-08-10,,GBP,70,70,70,Vinted,,"Fictional missing receipt: cost is unknown, not zero."
+KNIT-006,Wool jumper,in_stock,2026-08-12,7.00,GBP,68,68,68,Vinted | Depop,,Fictional unsold stock. Its cost ties up cash but is not a sold-item expense.
