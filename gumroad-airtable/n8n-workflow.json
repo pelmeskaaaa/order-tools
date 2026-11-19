@@ -10,23 +10,41 @@
       "name": "Gumroad Trigger",
       "type": "n8n-nodes-base.gumroadTrigger",
       "typeVersion": 1,
-      "position": [
-        260,
-        300
-      ]
+      "position": [260, 300]
     },
     {
       "parameters": {
-        "jsCode": "const event = $input.first().json;\nconst text = (value) => String(value ?? '').trim();\nconst orderNumber = text(event.order_number);\nconst email = text(event.email);\nconst productId = text(event.product_id);\nconst priceMinor = Number(event.price);\nconst currency = text(event.currency).toUpperCase();\nconst productName = text(event.product_name);\nconst saleDate = text(event.sale_timestamp || event.created_at);\nconst errors = [];\nif (!orderNumber) errors.push('Missing order_number');\nif (!email || !email.includes('@')) errors.push('Missing or invalid email');\nif (!productId) errors.push('Missing product_id');\nif (!Number.isSafeInteger(priceMinor) || priceMinor < 0) errors.push('Invalid price');\nif (!currency) errors.push('Missing currency');\nif (!saleDate || Number.isNaN(Date.parse(saleDate))) errors.push('Missing or invalid sale_timestamp');\nlet amount;\nif (currency) {\n  try {\n    const fractionDigits = new Intl.NumberFormat('en-US', { style: 'currency', currency }).resolvedOptions().maximumFractionDigits;\n    amount = priceMinor / (10 ** fractionDigits);\n  } catch {\n    errors.push('Invalid currency code');\n  }\n}\nif (errors.length) throw new Error(`Sale rejected before Airtable write: ${errors.join('; ')}`);\nconst fields = {\n  'Order Number': orderNumber,\n  'Sale ID': text(event.sale_id || event.id),\n  'Buyer Email': email,\n  'Product ID': productId,\n  'Product Name': productName,\n  'Sale Amount': amount,\n  'Currency': currency.toLowerCase(),\n  'Can Contact': event.can_contact === true,\n  'Sale Date': saleDate,\n};\nreturn [{ json: { requestBody: { performUpsert: { fieldsToMergeOn: ['Order Number'] }, records: [{ fields }] } } }];"
+        "jsCode": "const event = $input.first().json;\nconst saleId = String(event.sale_id ?? event.id ?? '').trim();\nif (!saleId) throw new Error('Gumroad ping rejected: sale_id is missing. No Airtable write was made.');\nreturn [{ json: { saleId } }];"
       },
       "id": "2db5d5b1-31e3-4aee-93cb-b80e47bf764e",
-      "name": "Validate and map sale",
+      "name": "Check ping has a sale ID",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [
-        520,
-        300
-      ]
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "={{ 'https://api.gumroad.com/v2/sales/' + encodeURIComponent($json.saleId) }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "gumroadApi",
+        "options": {}
+      },
+      "id": "5bd96d2c-0d31-4f49-b5b8-08c53e5783c2",
+      "name": "Verify sale with Gumroad API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [760, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const response = $input.first().json;\nconst ping = $('Gumroad Trigger').first().json;\nconst requestedId = String(ping.sale_id ?? ping.id ?? '').trim();\nconst sale = response.sale ?? response.purchase ?? response.data?.sale ?? response.data ?? null;\nif (response.success !== true || !sale || typeof sale !== 'object') throw new Error('Gumroad API did not confirm this sale. No Airtable write was made.');\nconst returnedIds = [sale.id, sale.sale_id].map(value => String(value ?? '').trim()).filter(Boolean);\nif (!requestedId || !returnedIds.includes(requestedId)) throw new Error('The sale ID from the ping did not match the authenticated Gumroad API response. No Airtable write was made.');\nif (sale.refunded === true || sale.disputed === true || sale.chargedback === true || sale.chargebacked === true) throw new Error('This sale is refunded or disputed and was not written by this sales-only workflow.');\nconst text = value => String(value ?? '').trim();\nconst orderNumber = text(sale.order_id ?? sale.order_number);\nconst email = text(sale.purchase_email ?? sale.email);\nconst productId = text(sale.product_id);\nconst currency = text(sale.currency).toUpperCase();\nconst priceMinor = Number(sale.price);\nconst saleDate = text(sale.sale_timestamp ?? sale.created_at);\nconst errors = [];\nif (!orderNumber) errors.push('Missing order number');\nif (!email.includes('@')) errors.push('Missing or invalid buyer email');\nif (!productId) errors.push('Missing product ID');\nif (!currency) errors.push('Missing currency');\nif (!Number.isSafeInteger(priceMinor) || priceMinor < 0) errors.push('Invalid sale price');\nif (!saleDate || Number.isNaN(Date.parse(saleDate))) errors.push('Missing or invalid sale date');\nlet amount;\nif (currency) {\n  try {\n    const fractionDigits = new Intl.NumberFormat('en-US', { style: 'currency', currency }).resolvedOptions().maximumFractionDigits;\n    amount = priceMinor / (10 ** fractionDigits);\n  } catch { errors.push('Invalid currency code'); }\n}\nif (errors.length) throw new Error(`Verified sale rejected before Airtable write: ${errors.join('; ')}`);\nconst fields = {\n  'Order Number': orderNumber,\n  'Sale ID': text(sale.id ?? sale.sale_id),\n  'Buyer Email': email,\n  'Product ID': productId,\n  'Product Name': text(sale.product_name),\n  'Sale Amount': amount,\n  'Currency': currency.toLowerCase(),\n  'Sale Date': saleDate,\n  'Can Contact': sale.can_contact === true\n};\nreturn [{ json: { requestBody: { performUpsert: { fieldsToMergeOn: ['Order Number'] }, records: [{ fields }] } } }];"
+      },
+      "id": "8a5b45c5-8146-45c2-b73e-4d6970dc8ab0",
+      "name": "Validate and map confirmed sale",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1020, 300]
     },
     {
       "parameters": {
@@ -43,42 +61,26 @@
       "name": "Upsert Airtable sale",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [
-        800,
-        300
-      ]
+      "position": [1280, 300]
     }
   ],
   "connections": {
     "Gumroad Trigger": {
-      "main": [
-        [
-          {
-            "node": "Validate and map sale",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+      "main": [[{"node": "Check ping has a sale ID", "type": "main", "index": 0}]]
     },
-    "Validate and map sale": {
-      "main": [
-        [
-          {
-            "node": "Upsert Airtable sale",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
+    "Check ping has a sale ID": {
+      "main": [[{"node": "Verify sale with Gumroad API", "type": "main", "index": 0}]]
+    },
+    "Verify sale with Gumroad API": {
+      "main": [[{"node": "Validate and map confirmed sale", "type": "main", "index": 0}]]
+    },
+    "Validate and map confirmed sale": {
+      "main": [[{"node": "Upsert Airtable sale", "type": "main", "index": 0}]]
     }
   },
   "active": false,
-  "settings": {
-    "executionOrder": "v1"
-  },
-  "meta": {
-    "templateCredsSetupCompleted": false
-  },
+  "settings": {"executionOrder": "v1"},
+  "meta": {"templateCredsSetupCompleted": false},
   "tags": []
 }
+
