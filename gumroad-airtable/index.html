@@ -45,12 +45,13 @@
 
       <div class="demo-grid">
         <article class="panel">
-          <div class="panel-head"><div><p class="eyebrow">INCOMING EVENT</p><h3>ORD-2026-042</h3></div><span class="pill success">Sale received</span></div>
+          <div class="panel-head"><div><p class="eyebrow">INCOMING EVENT</p><h3>Order 704393042</h3></div><span class="pill success">Sale received</span></div>
           <dl class="details">
             <div><dt>Product</dt><dd>Field Notes Pack</dd></div>
             <div><dt>Buyer</dt><dd>maya@example.test</dd></div>
             <div><dt>Amount</dt><dd>$24.00 USD</dd></div>
             <div><dt>Sale time</dt><dd>19 Nov 2026 · 08:42 UTC</dd></div>
+            <div><dt>Can contact</dt><dd>Yes · stored as a flag only</dd></div>
           </dl>
           <button class="text-link payload-toggle" id="toggle-payload" aria-expanded="false">View source payload</button>
           <pre id="payload" class="code-panel" hidden></pre>
@@ -68,8 +69,8 @@
       <div class="table-panel">
         <div class="table-top"><div><p class="eyebrow">AIRTABLE · SALES</p><h3>What the owner sees</h3></div><a class="text-link" href="expected-airtable-upsert.json" download>View upsert request ↗</a></div>
         <div class="table-scroll"><table>
-          <thead><tr><th>Order Number</th><th>Product</th><th>Buyer</th><th>Amount</th><th>Sync status</th></tr></thead>
-          <tbody id="sales-rows"><tr><td>ORD-2026-042</td><td>Field Notes Pack</td><td>maya@example.test</td><td>$24.00</td><td><span class="row-status">Synced</span></td></tr></tbody>
+          <thead><tr><th>Order Number</th><th>Product</th><th>Buyer</th><th>Amount</th><th>Can contact</th><th>Sync status</th></tr></thead>
+          <tbody id="sales-rows"><tr><td>704393042</td><td>Field Notes Pack</td><td>maya@example.test</td><td>$24.00</td><td>Yes</td><td><span class="row-status">Synced</span></td></tr></tbody>
         </table></div>
         <p id="exception-message" class="exception" hidden></p>
       </div>
@@ -86,7 +87,7 @@
 
     <section class="scope-note">
       <p class="eyebrow">SCOPE</p>
-      <p>This is an inspectable example, not a live integration. Historical imports, refunds and dispute handling need their own agreed rules.</p>
+      <p>This is a fictional-data example, not a live integration. It stores the customer-contact permission flag but never sends email. Historical imports, refunds and dispute handling need agreed rules.</p>
       <div class="download-links"><a href="sample-sale.json" download>Sample event JSON</a><a href="expected-airtable-upsert.json" download>Expected Airtable request</a><a href="README.md">Setup notes</a></div>
     </section>
   </main>
@@ -95,4 +96,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-
