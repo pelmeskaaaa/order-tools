@@ -1,0 +1,19 @@
+{
+  "performUpsert": {
+    "fieldsToMergeOn": ["Order Number"]
+  },
+  "records": [
+    {
+      "fields": {
+        "Order Number": "ORD-2026-042",
+        "Buyer Email": "maya@example.test",
+        "Product ID": "field-notes",
+        "Product Name": "Field Notes Pack",
+        "Sale Amount": 24,
+        "Currency": "USD",
+        "Sale Date": "2026-11-19T08:42:16Z"
+      }
+    }
+  ]
+}
+
