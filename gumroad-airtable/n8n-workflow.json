@@ -1,0 +1,60 @@
+{
+  "name": "Gumroad sales → Airtable (demo)",
+  "nodes": [
+    {
+      "parameters": {
+        "authentication": "accessToken",
+        "resource": "sale"
+      },
+      "id": "5f6633f4-87b7-4c6c-9137-30f6cb02f057",
+      "name": "Gumroad Trigger",
+      "type": "n8n-nodes-base.gumroadTrigger",
+      "typeVersion": 1,
+      "position": [260, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const event = $input.first().json;\nconst text = (value) => String(value ?? '').trim();\nconst orderNumber = text(event.order_number);\nconst email = text(event.email);\nconst productId = text(event.product_id);\nconst priceText = text(event.price);\nconst amount = Number(priceText.replace(',', '.'));\nconst currency = text(event.currency);\nconst productName = text(event.product_name);\nconst saleDate = text(event.sale_timestamp);\nconst errors = [];\nif (!orderNumber) errors.push('Missing order_number');\nif (!email) errors.push('Missing email');\nif (!productId) errors.push('Missing product_id');\nif (!priceText || !Number.isFinite(amount) || amount < 0) errors.push('Invalid price');\nif (!currency) errors.push('Missing currency');\nif (saleDate && Number.isNaN(Date.parse(saleDate))) errors.push('Invalid sale_timestamp');\nif (errors.length) throw new Error(`Sale rejected before Airtable write: ${errors.join('; ')}`);\nconst fields = {\n  'Order Number': orderNumber,\n  'Buyer Email': email,\n  'Product ID': productId,\n  'Product Name': productName,\n  'Sale Amount': amount,\n  'Currency': currency,\n};\nif (saleDate) fields['Sale Date'] = saleDate;\nreturn [{ json: { requestBody: { performUpsert: { fieldsToMergeOn: ['Order Number'] }, records: [{ fields }] } } }];"
+      },
+      "id": "2db5d5b1-31e3-4aee-93cb-b80e47bf764e",
+      "name": "Validate and map sale",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [520, 300]
+    },
+    {
+      "parameters": {
+        "method": "PATCH",
+        "url": "https://api.airtable.com/v0/appREPLACE_ME/tblREPLACE_ME",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ $json.requestBody }}",
+        "options": {}
+      },
+      "id": "c1ddc519-6d50-4ea7-ac92-ea64ab18dd4f",
+      "name": "Upsert Airtable sale",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [800, 300]
+    }
+  ],
+  "connections": {
+    "Gumroad Trigger": {
+      "main": [[{"node": "Validate and map sale", "type": "main", "index": 0}]]
+    },
+    "Validate and map sale": {
+      "main": [[{"node": "Upsert Airtable sale", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "tags": []
+}
+
