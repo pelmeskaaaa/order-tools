@@ -10,17 +10,23 @@
       "name": "Gumroad Trigger",
       "type": "n8n-nodes-base.gumroadTrigger",
       "typeVersion": 1,
-      "position": [260, 300]
+      "position": [
+        260,
+        300
+      ]
     },
     {
       "parameters": {
-        "jsCode": "const event = $input.first().json;\nconst text = (value) => String(value ?? '').trim();\nconst orderNumber = text(event.order_number);\nconst email = text(event.email);\nconst productId = text(event.product_id);\nconst priceText = text(event.price);\nconst amount = Number(priceText.replace(',', '.'));\nconst currency = text(event.currency);\nconst productName = text(event.product_name);\nconst saleDate = text(event.sale_timestamp);\nconst errors = [];\nif (!orderNumber) errors.push('Missing order_number');\nif (!email) errors.push('Missing email');\nif (!productId) errors.push('Missing product_id');\nif (!priceText || !Number.isFinite(amount) || amount < 0) errors.push('Invalid price');\nif (!currency) errors.push('Missing currency');\nif (saleDate && Number.isNaN(Date.parse(saleDate))) errors.push('Invalid sale_timestamp');\nif (errors.length) throw new Error(`Sale rejected before Airtable write: ${errors.join('; ')}`);\nconst fields = {\n  'Order Number': orderNumber,\n  'Buyer Email': email,\n  'Product ID': productId,\n  'Product Name': productName,\n  'Sale Amount': amount,\n  'Currency': currency,\n};\nif (saleDate) fields['Sale Date'] = saleDate;\nreturn [{ json: { requestBody: { performUpsert: { fieldsToMergeOn: ['Order Number'] }, records: [{ fields }] } } }];"
+        "jsCode": "const event = $input.first().json;\nconst text = (value) => String(value ?? '').trim();\nconst orderNumber = text(event.order_number);\nconst email = text(event.email);\nconst productId = text(event.product_id);\nconst priceMinor = Number(event.price);\nconst currency = text(event.currency).toUpperCase();\nconst productName = text(event.product_name);\nconst saleDate = text(event.sale_timestamp || event.created_at);\nconst errors = [];\nif (!orderNumber) errors.push('Missing order_number');\nif (!email || !email.includes('@')) errors.push('Missing or invalid email');\nif (!productId) errors.push('Missing product_id');\nif (!Number.isSafeInteger(priceMinor) || priceMinor < 0) errors.push('Invalid price');\nif (!currency) errors.push('Missing currency');\nif (!saleDate || Number.isNaN(Date.parse(saleDate))) errors.push('Missing or invalid sale_timestamp');\nlet amount;\nif (currency) {\n  try {\n    const fractionDigits = new Intl.NumberFormat('en-US', { style: 'currency', currency }).resolvedOptions().maximumFractionDigits;\n    amount = priceMinor / (10 ** fractionDigits);\n  } catch {\n    errors.push('Invalid currency code');\n  }\n}\nif (errors.length) throw new Error(`Sale rejected before Airtable write: ${errors.join('; ')}`);\nconst fields = {\n  'Order Number': orderNumber,\n  'Sale ID': text(event.sale_id || event.id),\n  'Buyer Email': email,\n  'Product ID': productId,\n  'Product Name': productName,\n  'Sale Amount': amount,\n  'Currency': currency.toLowerCase(),\n  'Can Contact': event.can_contact === true,\n  'Sale Date': saleDate,\n};\nreturn [{ json: { requestBody: { performUpsert: { fieldsToMergeOn: ['Order Number'] }, records: [{ fields }] } } }];"
       },
       "id": "2db5d5b1-31e3-4aee-93cb-b80e47bf764e",
       "name": "Validate and map sale",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
-      "position": [520, 300]
+      "position": [
+        520,
+        300
+      ]
     },
     {
       "parameters": {
@@ -37,15 +43,34 @@
       "name": "Upsert Airtable sale",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
-      "position": [800, 300]
+      "position": [
+        800,
+        300
+      ]
     }
   ],
   "connections": {
     "Gumroad Trigger": {
-      "main": [[{"node": "Validate and map sale", "type": "main", "index": 0}]]
+      "main": [
+        [
+          {
+            "node": "Validate and map sale",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     },
     "Validate and map sale": {
-      "main": [[{"node": "Upsert Airtable sale", "type": "main", "index": 0}]]
+      "main": [
+        [
+          {
+            "node": "Upsert Airtable sale",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -57,4 +82,3 @@
   },
   "tags": []
 }
-
