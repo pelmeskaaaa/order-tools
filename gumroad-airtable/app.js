@@ -1,14 +1,15 @@
 const sampleEvent = {
   sale_id: "demo-sale-042",
-  order_number: "ORD-2026-042",
+  order_number: 704393042,
   email: "maya@example.test",
   product_id: "field-notes",
   product_name: "Field Notes Pack",
-  price: "24.00",
-  currency: "USD",
+  price: 2400,
+  currency: "usd",
   sale_timestamp: "2026-11-19T08:42:16Z",
-  refunded: "false",
-  disputed: "false"
+  can_contact: true,
+  refunded: false,
+  disputed: false
 };
 
 let eventsReceived = 1;
@@ -44,7 +45,7 @@ document.querySelector("#replay-sale").addEventListener("click", () => {
   // The demo merges on the existing Order Number instead of adding a row.
   renderCounts();
   resultTitle.textContent = "Existing row updated";
-  resultCopy.textContent = "ORD-2026-042 matched the merge key. The row count stayed at one.";
+  resultCopy.textContent = "Order 704393042 matched the merge key. The row count stayed at one.";
   runStatus.textContent = "Replay checked · no duplicate created";
   exceptionMessage.hidden = true;
 });
@@ -60,4 +61,3 @@ document.querySelector("#send-invalid").addEventListener("click", () => {
   exceptionMessage.textContent = `No row was created. Validation stopped this event because ${missing.join(" and ")} were missing. In n8n, the failed execution stays visible for inspection and retry after correction.`;
   exceptionMessage.hidden = false;
 });
-
