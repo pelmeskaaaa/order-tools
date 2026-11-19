@@ -5,15 +5,16 @@
   "records": [
     {
       "fields": {
-        "Order Number": "ORD-2026-042",
+        "Order Number": "704393042",
+        "Sale ID": "demo-sale-042",
         "Buyer Email": "maya@example.test",
         "Product ID": "field-notes",
         "Product Name": "Field Notes Pack",
         "Sale Amount": 24,
-        "Currency": "USD",
-        "Sale Date": "2026-11-19T08:42:16Z"
+        "Currency": "usd",
+        "Sale Date": "2026-11-19T08:42:16Z",
+        "Can Contact": true
       }
     }
   ]
 }
-
