@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fa">
+  <title>Lead Qualification Flow | Oleh Boiko</title>
+  <style>
+    :root{color-scheme:light;--ink:#1d232d;--muted:#687282;--line:#e4e8ee;--paper:#fff;--canvas:#f6f7f9;--blue:#2764d8;--blue-soft:#eef4ff;--green:#137a58;--green-soft:#e9f6f0;--amber:#95620d;--amber-soft:#fff5df;--shadow:0 10px 32px rgba(22,34,54,.045)}
+    *{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:-.01em}button{font:inherit}
+    .shell{max-width:1200px;margin:0 auto;padding:26px 32px 42px}.top,.brand,.meta,.row,.flow,.step,.title-row,.draft-head,.record-head,.foot{display:flex;align-items:center}
+    .top{justify-content:space-between;gap:18px;padding-bottom:22px}.brand{gap:11px;font-size:12px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}.mark{display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--ink);color:#fff;font-size:16px;letter-spacing:0}
+    .meta{gap:9px;flex-wrap:wrap}.pill,.badge{display:inline-flex;align-items:center;gap:7px;border-radius:999px;font-size:11px;font-weight:650;white-space:nowrap}.pill{padding:7px 10px;background:#eef0f3;color:#394555}.live{padding:7px 10px;background:var(--green-soft);color:#315941}.dot{width:7px;height:7px;border-radius:50%;background:#c99126}
+    .hero{padding:32px 0 23px}.eyebrow{margin:0 0 10px;color:var(--blue);font-size:10px;font-weight:750;letter-spacing:.14em;text-transform:uppercase}h1{max-width:760px;margin:0;font-size:clamp(32px,4.3vw,52px);line-height:1.04;letter-spacing:-.055em;font-weight:740}.intro{max-width:720px;margin:15px 0 0;color:var(--muted);font-size:17px;line-height:1.55}
+    .notice{display:flex;gap:11px;align-items:flex-start;margin-top:23px;padding:13px 15px;border:1px solid #dce6f7;border-radius:13px;background:#f0f5fd;color:#34455e;font-size:12px}.info{display:grid;place-items:center;width:21px;height:21px;flex:0 0 21px;border-radius:50%;background:#dce9ff;color:var(--blue);font-weight:750}.notice strong{color:#24364e}
+    .flow{justify-content:space-between;gap:9px;margin:17px 0 21px;padding:15px 17px;border:1px solid var(--line);border-radius:15px;background:var(--paper)}.step{flex:1;gap:8px;min-width:0}.num{color:var(--blue);font-size:10px;font-weight:780}.step strong{display:block;font-size:11px;line-height:1.3}.step small{display:block;margin-top:3px;color:var(--muted);font-size:10px;line-height:1.3}.arrow{color:#a4adba;font-size:13px}
+    .workspace{display:grid;grid-template-columns:minmax(230px,.75fr) minmax(0,2fr);gap:16px;align-items:stretch}.panel{min-width:0;border:1px solid var(--line);border-radius:17px;background:var(--paper);box-shadow:var(--shadow)}.head{padding:18px 19px 13px;border-bottom:1px solid var(--line)}.title-row{justify-content:space-between;gap:10px}h2{margin:0;font-size:16px;line-height:1.2;letter-spacing:-.025em}.sub{margin:5px 0 0;color:var(--muted);font-size:11px}.count{color:var(--muted);font-size:11px;font-weight:650}
+    .list{padding:7px}.lead{display:block;width:100%;margin:0;padding:12px;border:0;border-radius:11px;background:transparent;text-align:left;cursor:pointer}.lead:hover{background:#f7f8fa}.lead[aria-current=true]{background:var(--blue-soft)}.row{justify-content:space-between;gap:8px}.name{overflow:hidden;font-size:12px;font-weight:700;text-overflow:ellipsis;white-space:nowrap}.company{margin-top:2px;color:var(--muted);font-size:11px}.summary{margin-top:7px;color:#485363;font-size:11px;line-height:1.45}.badge{padding:4px 7px;font-size:10px}.hot{color:var(--green);background:var(--green-soft)}.warm{color:var(--amber);background:var(--amber-soft)}.cold{color:#566273;background:#eef0f3}
+    .detail{padding:18px}.grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(235px,.9fr);gap:13px}.card{min-width:0;border:1px solid var(--line);border-radius:13px;background:#fff}.inside{padding:14px}.cardtitle{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:13px}.cardtitle strong{font-size:12px}.kicker{color:var(--muted);font-size:9px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}
+    .fields{display:grid;grid-template-columns:1fr 1fr;gap:11px 16px}.field span{display:block;color:var(--muted);font-size:9px;font-weight:650;letter-spacing:.06em;text-transform:uppercase}.field strong{display:block;margin-top:3px;overflow-wrap:anywhere;font-size:11px;font-weight:650}.request{margin-top:13px;padding-top:11px;border-top:1px solid var(--line)}.request p{margin:4px 0 0;color:#3d4755;font-size:11px;line-height:1.5}
+    .qual{padding:13px;border-radius:11px;background:#f8f9fb}.qual-top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.score{color:var(--blue);font-size:25px;font-weight:730;line-height:1;letter-spacing:-.05em}.score small{color:var(--muted);font-size:9px;font-weight:600;letter-spacing:0}.reason{margin:11px 0 0;color:#465262;font-size:11px;line-height:1.5}.next{margin-top:11px;padding:9px 10px;border-left:2px solid #b8ccef;border-radius:0 7px 7px 0;background:#fff}.next strong{display:block;font-size:10px}.next p{margin:3px 0 0;color:var(--muted);font-size:10px;line-height:1.4}
+    .draft{margin-top:13px}.draft-head{justify-content:space-between;gap:9px}.draft-head strong{font-size:11px}.message{margin-top:7px;padding:10px 11px;border:1px solid var(--line);border-radius:10px;color:#404b5a;font-size:11px;line-height:1.5}.status{display:flex;gap:7px;align-items:center;margin-top:9px;color:var(--muted);font-size:10px}.check{display:grid;place-items:center;width:16px;height:16px;border-radius:50%;background:var(--green-soft);color:var(--green);font-size:9px;font-weight:800}
+    .record{margin-top:13px}.record-head{justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}.record-head strong{font-size:12px}.record-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:2px 14px 9px}.record-field{padding:8px 8px 2px 0}.record-field span{display:block;color:var(--muted);font-size:9px}.record-field strong{display:block;margin-top:2px;overflow-wrap:anywhere;font-size:10px;font-weight:650}
+    .edge{display:flex;gap:9px;align-items:flex-start;margin-top:13px;padding:10px 12px;border:1px solid #f0e5c8;border-radius:10px;background:#fffaf0;color:#715622;font-size:10px;line-height:1.45}.edge strong{display:block;color:#614613;font-size:10px}
+    .actions{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-top:12px}.button{min-height:33px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:#364252;font-size:10px;font-weight:650;cursor:pointer}.button:hover{background:#f8f9fb}.json{display:none;margin-top:10px;padding:12px;overflow:auto;border-radius:10px;background:#202733;color:#e1e9f5;font:10px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace}.json.open{display:block}
+    .foot{justify-content:space-between;gap:15px;margin-top:18px;padding-top:13px;border-top:1px solid var(--line);color:var(--muted);font-size:10px}.foot strong{color:#465262;font-weight:650}
+    @media(max-width:820px){.shell{padding:18px}.flow{align-items:flex-start;overflow:auto}.step{min-width:115px;align-items:flex-start}.workspace{grid-template-columns:1fr}.list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:560px){.shell{padding:14px 12px 22px}.top{align-items:flex-start;flex-direction:column;padding-bottom:12px}.hero{padding-top:23px}.intro{font-size:15px}.flow{margin-right:-4px;padding:12px}.list{grid-template-columns:1fr}.detail{padding:12px}.grid{grid-template-columns:1fr}.record-grid{grid-template-columns:1fr 1fr}.foot{align-items:flex-start;flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="top">
+      <div class="brand"><span class="mark" aria-hidden="true">↗</span><span>Oleh Boiko · Workflow sample</span></div>
+      <div class="meta"><span class="pill">Interactive preview</span><span class="live"><span class="dot"></span>Fictional data · no live services</span></div>
+    </header>
+    <section class="hero">
+      <p class="eyebrow">Lead intake · qualification · human review</p>
+      <h1>Good leads reach the right person sooner.</h1>
+      <p class="intro">A small workflow preview for turning an incoming enquiry into a checked CRM record and a follow-up draft.</p>
+      <div class="notice"><span class="info" aria-hidden="true">i</span><div><strong>About this sample.</strong> The records, labels and message drafts are fictional and prewritten. This page does not call OpenAI, n8n or a CRM, and it does not send messages.</div></div>
+    </section>
+    <section class="flow" aria-label="Workflow steps">
+      <div class="step"><span class="num">01</span><div><strong>Receive</strong><small>Form or webhook</small></div></div><span class="arrow">→</span>
+      <div class="step"><span class="num">02</span><div><strong>Validate</strong><small>Required fields</small></div></div><span class="arrow">→</span>
+      <div class="step"><span class="num">03</span><div><strong>Qualify</strong><small>Client's rules</small></div></div><span class="arrow">→</span>
+      <div class="step"><span class="num">04</span><div><strong>Review</strong><small>Draft stays unsent</small></div></div><span class="arrow">→</span>
+      <div class="step"><span class="num">05</span><div><strong>Update</strong><small>CRM and alert</small></div></div>
+    </section>
+    <section class="workspace" aria-label="Lead workflow preview">
+      <aside class="panel">
+        <div class="head"><div class="title-row"><h2>Sample enquiries</h2><span class="count">03 records</span></div><p class="sub">Choose one to inspect the handoff.</p></div>
+        <div class="list" id="leadList"></div>
+      </aside>
+      <section class="panel" aria-live="polite">
+        <div class="head"><div class="title-row"><div><h2 id="detailTitle">Lead review</h2><p class="sub" id="detailSub"></p></div><span id="topBadge" class="badge hot"></span></div></div>
+        <div class="detail">
+          <div class="grid">
+            <section class="card"><div class="inside">
+              <div class="cardtitle"><strong>Incoming enquiry</strong><span class="kicker">Sample input</span></div>
+              <div class="fields">
+                <div class="field"><span>Name</span><strong id="name"></strong></div><div class="field"><span>Company</span><strong id="company"></strong></div>
+                <div class="field"><span>Email</span><strong id="email"></strong></div><div class="field"><span>Budget</span><strong id="budget"></strong></div>
+                <div class="field"><span>Timeline</span><strong id="timeline"></strong></div><div class="field"><span>Source</span><strong id="source"></strong></div>
+              </div>
+              <div class="request"><span class="kicker">What they asked for</span><p id="request"></p></div>
+            </div></section>
+            <section class="card"><div class="inside">
+              <div class="cardtitle"><strong>Qualification preview</strong><span class="kicker">Prewritten sample</span></div>
+              <div class="qual"><div class="qual-top"><div><span class="kicker">Suggested priority</span><div style="margin-top:6px"><span id="qualBadge" class="badge hot"></span></div></div><div class="score"><span id="score"></span><small> / 100</small></div></div>
+                <p class="reason" id="reason"></p><div class="next"><strong>Next step</strong><p id="next"></p></div>
+              </div>
+              <div class="draft"><div class="draft-head"><strong>Follow-up draft</strong><span class="badge cold">Not sent</span></div><div class="message" id="draft"></div><div class="status"><span class="check">✓</span><span>Waiting for a person to review before any reply is sent.</span></div></div>
+            </div></section>
+          </div>
+          <section class="card record"><div class="record-head"><strong>CRM record preview</strong><span class="kicker">No write performed</span></div>
+            <div class="record-grid">
+              <div class="record-field"><span>Match key</span><strong>Normalized email</strong></div><div class="record-field"><span>Priority</span><strong id="recordPriority"></strong></div><div class="record-field"><span>Owner</span><strong id="recordOwner"></strong></div>
+              <div class="record-field"><span>Company</span><strong id="recordCompany"></strong></div><div class="record-field"><span>Budget</span><strong id="recordBudget"></strong></div><div class="record-field"><span>Follow-up</span><strong>Draft · review needed</strong></div>
+            </div>
+          </section>
+          <div class="edge"><span aria-hidden="true">!</span><div><strong>Failure path</strong>If an email is missing, the qualification response is invalid, or an API call fails, hold the lead for review. Do not create a partial record or send a follow-up.</div></div>
+          <div class="actions"><button class="button" id="jsonButton" type="button" aria-expanded="false">View sample output</button><span class="count">Example matching key: email</span></div>
+          <pre class="json" id="jsonView" aria-label="Sample JSON output"></pre>
+        </div>
+      </section>
+    </section>
+    <footer class="foot"><span><strong>Independent prototype.</strong> Fictional records. No client deployment or live AI integration.</span><span>Prepared by Oleh Boiko · Cambridge, UK</span></footer>
+  </main>
+  <script>
+    const leads=[
+      {id:"northline",name:"Maya Chen",company:"Northline Studio",email:"maya@northline.example.test",budget:"$4,000-$6,000",timeline:"Within 2 weeks",source:"Website enquiry",request:"We receive 30 to 40 enquiries each week. We want to qualify them, add them to our CRM and prepare a prompt follow-up draft for the sales team.",priority:"Hot",score:91,owner:"Sales team · review",reason:"The request names a clear process, weekly volume, budget range and near-term start. It matches the sample qualification criteria.",next:"Review the lead, confirm the CRM fields and approve a short discovery call.",draft:"Hi Maya, thanks for outlining the enquiry flow. I can help map the form fields to your CRM and prepare a first version for your team to review. Which CRM are you using, and where do new enquiries arrive today?"},
+      {id:"harbor",name:"Elliot Moore",company:"Harbor Supply",email:"elliot@harbor.example.test",budget:"$1,000-$2,000",timeline:"Next month",source:"Referral form",request:"We want new wholesale enquiries routed to the right person. We are still deciding what information the form should collect.",priority:"Warm",score:64,owner:"Sales team · clarify",reason:"There is a clear routing need, but the form fields and qualification rules are not set yet. A short scoping step should come first.",next:"Ask which product lines and regions determine the owner.",draft:"Hi Elliot, thanks for the note. Before setting up the routing, I’d like to understand how you divide enquiries today. Which product lines or regions should send a lead to a different person?"},
+      {id:"fieldnote",name:"Avery Brooks",company:"Fieldnote Goods",email:"avery@fieldnote.example.test",budget:"Not provided",timeline:"Just exploring",source:"Website enquiry",request:"We are looking at automation options and may revisit this later. We do not have a process or budget agreed yet.",priority:"Cold",score:28,owner:"Nurture · no auto-send",reason:"The enquiry is exploratory and has no timeline or budget. Keep the record available, but do not create urgency or send repeated follow-ups.",next:"Save a low-priority record and wait for the person to choose a next step.",draft:"Hi Avery, thanks for getting in touch. I’m happy to share a short outline when you have a clearer process in mind. Feel free to come back when the timing is right."}
+    ];
+    const byId=id=>leads.find(lead=>lead.id===id)||leads[0];
+    const safe=value=>String(value).replace(/[&<>"]/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[ch]));
+    const tone=value=>value==="Hot"?"hot":value==="Warm"?"warm":"cold";
+    function renderList(selected){
+      document.getElementById("leadList").innerHTML=leads.map(lead=>'<button type="button" class="lead" data-id="'+lead.id+'" aria-current="'+(lead.id===selected)+'"><span class="row"><span class="name">'+safe(lead.name)+'</span><span class="badge '+tone(lead.priority)+'">'+lead.priority+'</span></span><span class="company">'+safe(lead.company)+'</span><span class="summary">'+safe(lead.request)+'</span></button>').join("");
+      document.querySelectorAll(".lead").forEach(button=>button.addEventListener("click",()=>renderLead(button.dataset.id)));
+    }
+    function renderLead(id){
+      const lead=byId(id);
+      document.getElementById("detailTitle").textContent=lead.name+" · lead review";
+      document.getElementById("detailSub").textContent=lead.company+" · fictional sample";
+      for(const [field,value] of Object.entries({topBadge:lead.priority,qualBadge:lead.priority,name:lead.name,company:lead.company,email:lead.email,budget:lead.budget,timeline:lead.timeline,source:lead.source,request:lead.request,score:lead.score,reason:lead.reason,next:lead.next,draft:lead.draft,recordPriority:lead.priority,recordOwner:lead.owner,recordCompany:lead.company,recordBudget:lead.budget}))document.getElementById(field).textContent=value;
+      document.getElementById("topBadge").className="badge "+tone(lead.priority);
+      document.getElementById("qualBadge").className="badge "+tone(lead.priority);
+      document.getElementById("jsonView").textContent=JSON.stringify({sample:true,lead:{name:lead.name,company:lead.company,email:lead.email,budget:lead.budget,timeline:lead.timeline},qualification:{priority:lead.priority,sampleScore:lead.score,reason:lead.reason},next_step:lead.next,follow_up:{status:"draft_only",text:lead.draft},crm:{match_key:"normalized_email",write_performed:false}},null,2);
+      renderList(id);
+    }
+    document.getElementById("jsonButton").addEventListener("click",event=>{const view=document.getElementById("jsonView"),open=view.classList.toggle("open");event.currentTarget.setAttribute("aria-expanded",String(open));event.currentTarget.textContent=open?"Hide sample output":"View sample output";});
+    renderLead("northline");
+  </script>
+</body>
+</html>
+
